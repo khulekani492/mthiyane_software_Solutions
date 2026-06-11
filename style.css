@@ -98,6 +98,12 @@ article{
     
      gap: 10px 90px;
 }
+.Work_With_us{
+    display: flex;
+    flex: wrap;
+    flex-direction: column;
+
+}
 
 article p{
     color: white;
@@ -212,7 +218,7 @@ article #mid{
     display: flex;
     flex-wrap: wrap;
     text-align: center;
-    font-size: 2em;
+    
     color: antiquewhite;
 
 }
