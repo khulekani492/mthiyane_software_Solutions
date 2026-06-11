@@ -5,7 +5,7 @@
 }
 
 header{
-    background-color: #443199;
+    background-color: #4B5694;
     color:  #EAE0CF;
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
@@ -43,6 +43,17 @@ article{
 
 }
 
+.recordss{
+    padding: 4%;
+    
+}
+
+.brief_explaination{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-left: 1%;
+}
 .serv h2{
     color: orange;
     margin-left: 18%;
