@@ -93,6 +93,11 @@ article{
     gap: 10px 90px;
     
 }
+.ourService{
+    display: grid;
+    
+     gap: 10px 90px;
+}
 
 article p{
     color: white;
