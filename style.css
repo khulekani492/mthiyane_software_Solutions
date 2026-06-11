@@ -28,6 +28,7 @@ article{
     display: flex;
     flex: wrap;
     flex-direction: column;
+    margin-left: 4%;
 
     
 }
