@@ -13,6 +13,7 @@ header{
     align-items: center;
     gap: 10px 30px;    
     height: 100px;
+  
 }
 article{
     display: grid;
