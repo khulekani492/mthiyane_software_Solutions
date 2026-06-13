@@ -220,7 +220,41 @@ grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
     display: flex;
     flex-wrap: wrap;
     text-align: center;
-    
     color: antiquewhite;
+}
 
+@media screen and (min-width: 1200px) {
+  .reach {
+    border: 2px solid green;
+    display: none;
+  }
+  .bg{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap:10px;
+    
+  }
+#eish{
+    display: block;
+}
+ .bg  button{
+    display: block;
+    height: 50px;
+    width: 100px;
+    margin-top: 6%;
+  }
+
+
+  .bg h3{
+    margin-top: 7%;
+    display: block;
+  }
+
+  .ourService ol{
+     display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap:10px;
+  }
 }
