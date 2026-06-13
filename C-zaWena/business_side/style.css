@@ -1,5 +1,43 @@
 html,body{
     margin: 0%;
     padding: 0%;
-    
+
+}
+.mainInfo{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+}
+.mainInfo label{
+    margin-left: 20%;
+
+}
+.btns{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap:30px;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
+}
+article{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: center;
+}
+
+.inp_btn{
+    display: none;
+}
+
+.btns{
+    display: none;
+}
+.inp_btn:checked ~  .btns{
+ display: block;
+
 }
