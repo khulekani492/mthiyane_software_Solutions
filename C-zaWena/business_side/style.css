@@ -22,15 +22,14 @@ html,body{
     align-items: center;
     justify-content: center;
     margin-top: 5%;
+    
 }
+
 article{
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     text-align: center;
-}
-.navbar{
-    border: 2px solid red;
 }
 
 .inp_btn{
@@ -38,9 +37,16 @@ article{
 }
 
 .btns{
-    display: block;
+    display: none;
 }
 #tick:checked ~  .btns{
- display: none;
+ display: block;
 
+}
+
+
+@media screen and (min-width: 1200px){
+  .toggle_nav{
+    display: none;
+}  
 }
