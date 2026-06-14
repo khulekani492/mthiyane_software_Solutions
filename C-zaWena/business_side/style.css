@@ -29,6 +29,9 @@ article{
     flex-direction: column;
     text-align: center;
 }
+.navbar{
+    border: 2px solid red;
+}
 
 .inp_btn{
     display: none;
