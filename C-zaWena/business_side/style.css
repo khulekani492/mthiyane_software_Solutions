@@ -7,12 +7,12 @@ html,body{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+    justify-content: space-between;
 
 }
-.mainInfo label{
-    margin-left: 20%;
 
-}
+
+
 .btns{
     display: flex;
     flex-wrap: wrap;
@@ -35,9 +35,9 @@ article{
 }
 
 .btns{
-    display: none;
+    display: block;
 }
-.inp_btn:checked ~  .btns{
- display: block;
+#tick:checked ~  .btns{
+ display: none;
 
 }
