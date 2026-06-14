@@ -29,7 +29,12 @@ header{
     margin-top: 5%;
     
 }
-
+.end{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    color: antiquewhite;
+}
 article{
     display: flex;
     flex-wrap: wrap;
