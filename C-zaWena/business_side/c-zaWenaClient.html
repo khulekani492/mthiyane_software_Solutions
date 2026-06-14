@@ -4,7 +4,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>@C-zaWena#homepage</title>
         <link  href="style.css" rel="stylesheet">
-    </head>
+         </head>
     <body>
 
          <input type="checkbox" id="tick" class="inp_btn">
@@ -18,22 +18,34 @@
          
       </header>
       <div class="paymentForm">
-        <h2 style="color: #BBD5DA;">C-zaWena</h2>
+        <h2 style="color: brown;">Cza-Wena</h2>
 
         <p style="color: #303841; background-color: #F5F5F5;">Amount Due:R150</p>
         <div style="display: flex; flex-wrap: wrap; flex-direction: column;">
                <label style="color: #303841; background-color: #F5F5F5;"> Business Type: Funeral policy</label>
         <label style="color: #303841; background-color: #F5F5F5;">Busineses Name : ZONDO Funeral SERVICE provide</label>
         </div>
-     
-
-
-        <label>ENTER REFERENCE NO.</label>
+        
+             <form id="visibleForm">
+        <label>ENTER REFERENCE</label>
         <input />
 
         <label>ENTER Voucher</label>
-        <input />
-        <button style="background-color: green; color: antiquewhite;">Pay</button>
+        <input id="userAmount" />
+    <input style="background-color: green; color:antiquewhite; margin-top: 5%;" type="submit" value="PAY NOW">
+        </form>
+        
+       
+     
+<form id="cashile" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center;" action="https://sandbox.payfast.co.za/eng/process" method="post">
+   <input type="hidden" name="merchant_id" value=" 10050242">
+   <input type="hidden" name="merchant_key" value="3m2lp1ypngqud">
+   <input type="hidden" name="amount" id="sandbox" >
+   <input type="hidden" name="item_name" value="Test Product">
+
+</form> 
+
+    
       </div>
 
   
@@ -47,6 +59,10 @@
         </div>
 
     </footer>
+
+       <script src="js/submtForm.js" >
+        </script>
     </body>
     
+
 </html>
