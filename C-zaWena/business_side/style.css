@@ -1,7 +1,14 @@
 html,body{
     margin: 0%;
     padding: 0%;
+        background-color:  #F5F5F5;
+   
 
+}
+
+header{
+ background-color: #303841;
+    color:#FF5722;
 }
 .mainInfo{
     display: flex;
@@ -10,8 +17,6 @@ html,body{
     justify-content: space-between;
 
 }
-
-
 
 .btns{
     display: flex;
