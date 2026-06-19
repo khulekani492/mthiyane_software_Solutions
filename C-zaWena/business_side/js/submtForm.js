@@ -1,7 +1,38 @@
-document.getElementById('visibleForm').addEventListener('submit', function(event) {
-  // 1. Stop the visible form from performing its default submission
-  event.preventDefault(); 
-  
+
+document.getElementById("visibleForm").addEventListener('submit',async function(event){
+     event.preventDefault();
+    
+     const myform = document.getElementById("visibleForm");
+     const sentForm = new FormData(myform);
+
+     const response = await fetch('http://localhost:5050/confirm_client',
+      {
+        method:'Post',
+        body: sentForm
+      });
+
+   
+      if (!response.ok){
+        throw new Error(`HTTP error: ${response.status}`);
+            }
+
+      const data = await response.json();
+      const status = data.Status;
+      console.log('Success:', status);
+      if(status == "OK"){
+        console.log('Smile')
+        attempt_payment();
+      }
+      
+    
+      });
+
+
+
+
+function attempt_payment(){
+ 
+  console.log("Siyafika Kodwa")
   // 2. Extract the string value typed by the user
   const userData = document.getElementById('userAmount').value; 
   
@@ -10,4 +41,8 @@ document.getElementById('visibleForm').addEventListener('submit', function(event
   
   // 4. Trigger the submission of the hidden form
   document.getElementById('cashile').submit(); 
-});
+};
+
+
+
+
