@@ -5,7 +5,7 @@ document.getElementById("visibleForm").addEventListener('submit',async function(
      const myform = document.getElementById("visibleForm");
      const sentForm = new FormData(myform);
 
-     const response = await fetch('http://localhost:5050/confirm_client',
+     const response = await fetch('https://project.c-zwena.co.za/confirm_client',
       {
         method:'Post',
         body: sentForm

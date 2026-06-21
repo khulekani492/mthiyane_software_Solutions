@@ -244,37 +244,16 @@ grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
 }
 
 @media screen and (min-width: 1200px) {
-  .reach {
-    border: 2px solid green;
-    display: none;
-  }
-  .bg{
+ header{
+    background-color: #d24b4b;
+    color:  #EAE0CF;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
-    gap:10px;
-    
-  }
-#eish{
-    display: block;
+    flex-direction: column;
+    gap: 10px 30px;    
+    width: 100%;
+  
 }
- .bg  button{
-    display: block;
-    height: 50px;
-    width: 100px;
-    margin-top: 6%;
-  }
+ 
 
-
-  .bg h3{
-    margin-top: 7%;
-    display: block;
-  }
-
-  .ourService ol{
-     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    gap:10px;
-  }
 }

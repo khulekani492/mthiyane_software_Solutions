@@ -41,11 +41,19 @@
        
      
 <form id="cashile" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center;" action="https://sandbox.payfast.co.za/eng/process" method="post">
-   <input type="hidden" name="merchant_id" value=" 10050242">
-   <input type="hidden" name="merchant_key" value="3m2lp1ypngqud">
+   <input type="hidden" name="merchant_id" value="10050442">
+   <input type="hidden" name="merchant_key" value= "bddgvzio1j549">
    <input type="hidden" name="amount" id="sandbox" >
    <input type="hidden" name="item_name" value="Test Product">
-
+  <input type="hidden" name="setup" value='{
+    "split_payment" : {
+        "merchant_id":10050242,
+        "merchant_key":"3m2lp1ypngqud",
+        "percentage":10,
+        "min":100,
+       "max":100000
+      }
+}'> 
 </form> 
 
     
