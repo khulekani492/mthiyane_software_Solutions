@@ -18,6 +18,21 @@ header{
 
 }
 
+.msg{
+     background-color: #303841;
+    color:#FF5722;
+}
+
+.center_msg{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 2em;
+}
+
+
 .btns{
     display: flex;
     flex-wrap: wrap;

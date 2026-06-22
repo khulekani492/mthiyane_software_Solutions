@@ -22,6 +22,7 @@ document.getElementById("visibleForm").addEventListener('submit',async function(
       if(status == "OK"){
         console.log('Smile')
         attempt_payment();
+
       }
       
     
