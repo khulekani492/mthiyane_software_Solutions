@@ -243,17 +243,24 @@ grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
     color: antiquewhite;
 }
 
-@media screen and (min-width: 1200px) {
- header{
-    background-color: #d24b4b;
+@media screen and (min-width: 1024px) {
+    html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+    header{
+    background-color: #8a5656;
     color:  #EAE0CF;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
+    display: grid;
+    align-items: center;
     gap: 10px 30px;    
-    width: 100%;
-  
-}
- 
+}      
 
+.mainDiv{
+    display: none;
+    grid-template-rows: repeat(auto-fit,minmax(250px,1fr));
+    gap: 6px;
+
+}
 }
