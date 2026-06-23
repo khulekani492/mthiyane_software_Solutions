@@ -16,6 +16,9 @@ header{
   
 }
 
+.toggle_nav{
+    display: none;
+}
 .btns{
     display: none;
     margin-top: 0%;
@@ -263,4 +266,5 @@ grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
     gap: 6px;
 
 }
+
 }
