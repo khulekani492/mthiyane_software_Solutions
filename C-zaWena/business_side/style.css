@@ -18,9 +18,17 @@ header{
 
 }
 
+
+table,tr,th{
+    border: 2px solid black ;
+    color:    #FF5722;
+    background-color: #303841;
+}
+
 .msg{
-     background-color: #303841;
-    color:#FF5722;
+    
+    background-color: #303841;
+    color:#FF5722                  ;
 }
 
 .center_msg{
