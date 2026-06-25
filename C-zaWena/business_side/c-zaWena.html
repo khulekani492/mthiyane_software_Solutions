@@ -46,7 +46,7 @@
         <p>
           Click
         </p> 
-        <button style="width: 100px; background-color: #8de5ea; color: #303841;" >View Dashbaord</button>  
+        <button id="dash" style="width: 100px; background-color: #8de5ea; color: #303841;" >View Dashbaord</button>  
        </div>
      </div>
               <div  style="display: flex; flex-wrap: wrap; flex-direction: row; gap: 10px; justify-content: center; align-items: center;">
@@ -60,5 +60,29 @@
            </p>
         </div>
     </footer>
+    <script>
+      
+      document.getElementById("dash").addEventListener('click',function()  {
+        console.log("Message received! ")
+        const url = "http://localhost:5050/dashboard";
+
+        fetch(url)
+        .then(response => {  
+        console.log("Status Code:", response.status);      
+
+         if (!response.ok){
+           throw new Error(`HTTP error: ${response.status}`);
+        }
+
+        
+
+        return window.location.assign("dashboard.html")
+      }
+    )
+  });
+  function business_online_payment(){
+    const url = ""
+  }
+    </script>
     </body>
 </html>
