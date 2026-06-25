@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "mthiyane-software-solutions",
+  "compatibility_date": "2026-06-25",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "company"
+  },
+  "compatibility_flags": [
+    "nodejs_compat"
+  ]
+}
