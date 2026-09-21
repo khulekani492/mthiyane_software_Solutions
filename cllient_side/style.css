@@ -1,0 +1,96 @@
+html,body{
+    margin: 0%;
+    padding: 0%;
+        background-color:  #F5F5F5;
+   
+
+}
+
+header{
+ background-color: #F5F5F5;
+    color:#1d1311;
+}
+.mainInfo{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+
+table,tr,th{
+    border: 2px solid black ;
+    color:    #FF5722;
+    background-color: #303841;
+}
+
+.msg{
+    
+    background-color: #303841;
+    color:#FF5722                  ;
+}
+
+.center_msg{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 2em;
+}
+
+
+.btns{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap:30px;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
+    
+}
+.end{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  z-index: 999; /* Keeps it on top of other elements */
+}
+article{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: center;
+}
+
+.inp_btn{
+    display: none;
+}
+
+.btns{
+    display: none;
+}
+#tick:checked ~  .btns{
+ display: block;
+
+}
+.paymentForm{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px.1fr));
+    place-items: center;
+    gap: 10px;
+    background-color: #FF5722;
+    margin-top: 3%;
+    
+}
+
+@media screen and (min-width: 1200px){
+  .toggle_nav{
+    display: none;
+}  
+}
