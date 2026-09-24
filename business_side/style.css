@@ -1,8 +1,7 @@
 html,body{
     margin: 0%;
     padding: 0%;
-        background-color:  #F5F5F5;
-   
+    background-color:  #F5F5F5;
 
 }
 
@@ -84,7 +83,6 @@ article{
     grid-template-columns: repeat(auto-fit,minmax(250px.1fr));
     place-items: center;
     gap: 10px;
-    background-color: #FF5722;
     margin-top: 3%;
     
 }

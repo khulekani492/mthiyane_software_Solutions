@@ -8,18 +8,17 @@
     <body>
 
          <input type="checkbox" id="tick" class="inp_btn">
-      <header>
+ <header>
         <div class="mainInfo">
-
-         <h1 style="margin-left: 2%;"> C-zaWena </h1>
-         
-               
-       <label style="margin-top: 7%; font-size: 25px;" class="toggle_nav" for="tick" >Menu</label>
-         
+          <div style="display: flex; flex-wrap:mwrap; flex-direction: row; gap: 20px; justify-content: center; align-items: center;">
+         <img src="/home/klogo.png" alt="logo" class="logo">
+         <h1 style="margin-left: 1%;"> CzWena </h1>   
+          </div> 
       </header>
+
       <div class="paymentForm">
-        <h2 style="color: rgb(35, 19, 19);">Cza-Wena</h2>  
-      <form style="display: flex; flex-wrap: wrap; flex-direction: column;  color:antiquewhite" id="visibleForm">
+        <h2 style="color: rgb(251, 109, 20);">C-zWena</h2>  
+      <form style="display: flex; flex-wrap: wrap; flex-direction: column;  color:#5b6e2e" id="visibleForm">
         <label>Enter Business name:</label>
         <input name="business_name"/>
         <label>Service  Type:</label>
@@ -30,18 +29,19 @@
           <option>
             Rental Property
           </option>
-          <option>
-            School Transport
-          </option>
         </select>
-
-        <label>Enter  Client name:</label>
-        <input name="clientName"  />
-        <label>Enter  ID :</label>
+        <label>Enter  ID  Number:</label>
         <input name="ID"  />
-        <label>Enter  Amount:</label>
-        <input name="amount">
-    <input style="background-color: green; color:antiquewhite; margin-top: 5%;" type="submit" value="SUBMIT">
+        <label>Enter  Phone Number:</label>
+        <input name="phone_number"  />
+        <label>Bank Name:</label>
+        <input name="bank_name" />
+        <label>Account Number:</label>
+        <input name="account_number" />
+        
+        <label>Bank Account:</label>
+        <input name="bank_account" />
+        <input style="background-color: green; color:antiquewhite; margin-top: 5%;" type="submit" value="SUBMIT">
         </form>
       </div>
 
