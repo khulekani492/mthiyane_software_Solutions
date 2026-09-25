@@ -15,37 +15,67 @@
       <div class="dashboard" >
         <div class="clientSearch">
               <div id="div1">
-            <div style="font-size: 3.2em; align-self: flex-end;">
-               <label>Number of Clients linked</label> 
+            <h1 atyle="">C-zWena dashboard</h1> 
+            <div style="font-size: 2.2em; align-self: flex-start;">
+               
+                <label>Number of Clients linked</label> 
             </div>
-        
-        <span>500</span>
+            <div style="display: flex; gap:30px;">
+                 <span>500</span>
+                 <button type="button" style="font-size: 1.2em;">Add New Client</button>
+            </div>
+          
+
+            
         </div>
         <div id="div2">
-            <div style="font-size: 3.2em;">
-                <label>C-zaWena</label>
-                <div >
-                      <form action="tobackend">
-                    <input type="text" name="search" placeholder="Enter ID Number" />
+         <label style="font-size: 1.8em;">Search Client</label>
+          <input type="text" name="search" placeholder="Enter ID Number" />
+              <form action="tobackend">
                     <button type="submit">Search</button>
                 </form>
-                </div>
-
         </div>
-
-
               </div>
-               <div class="clientResults">
-                <div id="div8">
-                    <label>Results</label>
+              <div style="display:flex; flex-wrap: nowrap; justify-content: center; font-size: 2.6em;">
+                <label>Client Profile</label>
+              </div>
+       <div class="clientResults">
+                <div id="div3">              
                     <label>Client Name:</label>
+                    <input placeholder="name" />
                     <label>Client ID:</label>
-                    
+                    <input />
                 </div> 
-                <div id="div5">
-                    <label>Choose A month</label>
+                <div id="div4">
+                    <div style="border: 2px solid yellow;">
+        <label>Choose A month </label>
+            <select style="width: 90%; height: 60%; font-size: 1.1em;" id="months" >
+                <option value="Jan">Jan</option>
+                <option value="Feb">Feb</option>
+                <option value="march" selected>March</option>
+                <option value="april" disabled>April</option>
+                <option value="Feb">May</option>
+                <option value="march" selected>June</option>
+                <option value="april" disabled>July</option></select>
+                    </div>
+                    <div > 
+                    <p  style="font-size: 1em;"  >Client Receipt  Download</p>
+
+                    <iframe class="pdf" 
+            src="just_content.pdf"
+            width="100%"
+            height="80px">
+                    </iframe>
+
+                    </div>
+             
                 </div>  
+                
               </div>
       </div>
+       <div style="display: flex; justify-content: center;" >
+           <h1  >Payment history</h1>
+           
+       </div>
     </body>
 </html>

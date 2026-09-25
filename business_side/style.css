@@ -36,9 +36,7 @@ header{
 .dashboard{
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
-    /* justify-content: center;
-    align-items: center; */
+    flex-direction: column;
     border: 2px solid #FF5722;
     min-height: 400px;
 
@@ -58,15 +56,10 @@ header{
   gap:20px;
 }
 #div1 span{
-    font-size: 3.8em;
+    font-size: 2.8em;
     color: #FF5722;
 }
-#div2{
-  display: flex;
-  flex-wrap: nowrap;
-  flex-direction: column;
-  gap:20px;
-}
+
 
 
 input {
@@ -96,21 +89,45 @@ button {
 .clientResults {
   display: flex;
   flex-wrap: nowrap;
-  flex-direction: column;
+  flex-direction: row;
+  gap:170px;
+  font-size: 1.3em;
    
 }
-#div8{
+
+.clientSearch{
+ display:flex;
+ gap: 60px;
+ border: 1px solid blue;
+}
+#div2{
+ border: 1px solid rgb(175, 210, 21);
+ display:flex;
+ flex-wrap: nowrap;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ gap:20px;
+}
+
+#div3{
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   gap:20px;
   font-size: 1.6em;
-  background-color: #b06e4d;
   padding: 10px;
-  margin-top: 5%;
+  margin-left: 10%;
   color: #161413;
+
+}
+#div4{
+  display: flex;
+  flex-wrap: nowrap;
+  font-size: 1.6em;
+  flex-direction: column;
+  gap:10px;
+
 }
 
 @media screen and (min-width: 1200px){
