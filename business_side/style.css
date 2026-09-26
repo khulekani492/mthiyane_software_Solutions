@@ -37,7 +37,7 @@ header{
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    border: 2px solid #FF5722;
+    border: 2px solid #938985;
     min-height: 400px;
 
 
@@ -98,7 +98,8 @@ button {
 .clientSearch{
  display:flex;
  gap: 60px;
- border: 1px solid blue;
+ border: 3px solid rgb(91, 67, 67);
+ justify-content: center;
 }
 #div2{
  border: 1px solid rgb(175, 210, 21);
