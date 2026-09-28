@@ -130,6 +130,7 @@ button {
   flex-wrap: nowrap;
   font-size: 1.6em;
   flex-direction: column;
+  background-color: #303841;
   gap:10px;
 
 }
