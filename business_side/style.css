@@ -38,7 +38,7 @@ header{
     flex-wrap: wrap;
     flex-direction: column;
     border: 2px solid #938985;
-    min-height: 400px;
+    padding: 40px;
     
 
 
@@ -92,7 +92,12 @@ button {
   flex-wrap: nowrap;
   flex-direction: row;
   gap:170px;
-  font-size: 1.3em;
+  font-size: 16px;
+  background-color: orangered;
+  color: #F5F5F5;
+  padding: 80px ;
+  border: 2px solid black;
+  
    
 }
 
@@ -105,13 +110,16 @@ button {
 }
 #div2{
  
- background-color: #FF5722;
+ background-color: #303841;
+ color: #F5F5F5;
  display:flex;
  flex-wrap: nowrap;
  flex-direction: column;
- justify-content: center;
+ justify-content: left;
+ height: 40%;
  align-items: center;
  gap:20px;
+ padding: 10px 20px;
 }
 
 #div3{
@@ -119,16 +127,18 @@ button {
   flex-wrap: nowrap;
   flex-direction: column;
   gap:20px;
-  font-size: 1.6em;
-  padding: 10px;
+  font-size: 1.9em;
+  padding: 5px;
   margin-left: 10%;
-  color: #161413;
+  color: #000;
+  
+ 
 
 }
 #div4{
   display: flex;
   flex-wrap: nowrap;
-  font-size: 1.6em;
+  font-size: 1.9em;
   flex-direction: column;
   background-color: #303841;
   gap:10px;
