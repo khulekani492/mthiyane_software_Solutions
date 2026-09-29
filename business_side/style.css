@@ -18,6 +18,23 @@ header{
 
 }
 
+.mainForm{
+  display: flex;
+  flex-direction: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.min_div1{
+  display: flex;
+  flex-direction: column;
+}
+
+.min_div2{
+  display: flex;
+  flex-direction: column;
+}
 .paymentForm{
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(250px.1fr));
