@@ -21,10 +21,13 @@ header{
 .mainForm{
   display: flex;
   flex-direction: wrap;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 30px;
+  background-color: #FF5722;
+  border: 2px solid black;
+  padding: 20px 40px;
 }
 .min_div1{
   display: flex;
