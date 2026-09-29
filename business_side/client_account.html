@@ -47,7 +47,7 @@
 
       </div>
         <footer>
-        <div class="end">
+        <div class="end" style="display: flex; ">
            <p>
             @Mthiyane_Software Solutions<br>C-zaWena  online payment platform for cash users
            </p>
@@ -55,29 +55,6 @@
     </footer>
  
     
-    <script>
-      
-      document.getElementById("dash").addEventListener('click',function()  {
-        console.log("Message received! ")
-        const url = "http://localhost:5050/dashboard";
-
-        fetch(url)
-        .then(response => {  
-        console.log("Status Code:", response.status);      
-
-         if (!response.ok){
-           throw new Error(`HTTP error: ${response.status}`);
-        }
-
-        
-
-        return window.location.assign("dashboard.html")
-      }
-    )
-  });
-  function business_online_payment(){
-    const url = ""
-  }
-    </script>
+    
     </body>
 </html>
