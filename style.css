@@ -15,9 +15,31 @@
     margin-left: 3%;
 
 }
-#intro_description{
-    align-self: flex-start;
+
+
+
+.aboutC-z{
+    display:  flex;
+    justify-content: center;
+    align-items: center;
 }
+#intro_description{
+    font-size: 1.2em;
+    align-self: center;
+}
+
+.solution{
+    display:flex;
+    justify-content: center; 
+    align-items: center;
+     font-size: 1.3em; 
+     flex-direction: column; 
+     background-color: #325E6A; 
+     color: #F5F5F5;
+     padding: 10px;
+     border-radius: 5%;
+}
+
 #uno{
     color:orangered;
     align-self: stretch;
