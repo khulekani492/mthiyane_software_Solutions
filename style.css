@@ -104,7 +104,6 @@ nav{
 }
 .hamburger{
     display: flex;
-    
     height: 20px;
     width: 10px;
     padding: 15px;
@@ -120,4 +119,57 @@ nav{
     border: 2px solid black;
     width: 19px;
     
+}
+.nav_links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    
+    
+    
+
+}
+.nav_bar{
+
+    
+    padding:10px;
+    border-radius: 15%;
+    
+    
+    
+}
+
+ul {
+    list-style-type:none ;
+}
+
+
+
+ul li {
+    transition: background-color 0.3s ease;
+}
+ul li:hover {
+  background-color: #ffd000; /* Turns the item background blue */
+  color: white;              /* Changes text color to white */
+}
+a{
+    color:black;
+    padding: 7px;
+    text-decoration: none;
+}
+.footer{
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border:2px solid black;
+    padding: 20px;
+    background-color: #303841;
+    color:white;
+    height: 40px;
 }
