@@ -90,3 +90,34 @@
     align-items: center;
     padding: 20px;
 }
+nav{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    justify-content: space-between;
+    gap: 1%;
+
+}
+.hamburger{
+    display: flex;
+    
+    height: 20px;
+    width: 10px;
+    padding: 15px;
+    gap:5px;
+    flex-direction: column; 
+    border-radius: 10%;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+}
+
+.bar{
+    border: 2px solid black;
+    width: 19px;
+    
+}
