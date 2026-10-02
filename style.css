@@ -280,6 +280,19 @@ button {
     padding: 30px;
     
 }
+/* Adds breathing room below the form container */
+.mainForm {
+  margin-bottom: 60px;
+}
+
+/* Adds breathing room above the footer */
+footer {
+  margin-top: 60px;
+  background-color: #303841;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+}
 
 select{
     background-color:#FCE59A; 
