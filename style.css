@@ -43,10 +43,6 @@ html,body{
      border-radius: 5%;
 }
 
-#uno{
-    color:orangered;
-    align-self: stretch;
-}
 #clientHeader{
     display: flex;
     flex-wrap: wrap;
@@ -352,8 +348,8 @@ a{
   justify-content: center;
   align-items: center;
   gap: 30px;
-  background-color: #FF5722;
-  border: 2px solid black;
+  background-color: #325E6A;
+  color: #F5F5F5;
   padding: 20px 40px;
 }
 .min_div1{
