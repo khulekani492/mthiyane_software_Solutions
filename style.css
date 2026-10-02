@@ -137,9 +137,6 @@ nav {
     flex-direction: column;
     gap: 10px;
     padding: 10px;
-    
-    
-    
 
 }
 .nav_bar{
@@ -148,16 +145,159 @@ nav {
     padding:10px;
     border-radius: 15%;
     
+}
+
+
+
+.welcomeMsg{
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    font-size: 1.1em;
     
+}
+.dashboard{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    border: 2px solid #938985;
+    padding: 40px;
     
+
+
+}
+#div1{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  gap:20px;
+}
+
+#div1{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  gap:20px;
+}
+#div1 span{
+    font-size: 2.8em;
+    color: #FF5722;
+}
+
+
+
+input {
+  width: 200px;
+  height: 40px;
+  padding: 8px 12px;
+  font-size: 16px;
+  box-sizing: border-box;
+  border: 2px solid #333;
+}
+button {
+  /* Direct sizing */
+  width: 200px;
+  height: 50px;
+
+  /* Or size it via padding + content instead of fixed width/height (more flexible) */
+  padding: 12px 24px;
+
+  /* Font size affects perceived button size too */
+  font-size: 16px;
+
+  /* Box-sizing so padding/border don't add to your stated width/height */
+  box-sizing: border-box;
+
+  border: 2px solid #333;
+}
+.clientResults {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  gap:170px;
+  font-size: 16px;
+  background-color: orangered;
+  color: #F5F5F5;
+  padding: 80px ;
+  border: 2px solid black;
+  
+   
+}
+
+.clientSearch{
+ display:flex;
+ gap: 60px;
+ border: 3px solid rgb(190, 178, 178);
+ justify-content: center;
+ padding: 5%;
+}
+#div2{
+ 
+ background-color: #303841;
+ color: #F5F5F5;
+ display:flex;
+ flex-wrap: nowrap;
+ flex-direction: column;
+ justify-content: left;
+ height: 40%;
+ align-items: center;
+ gap:20px;
+ padding: 10px 20px;
+}
+
+#div3{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  gap:20px;
+  font-size: 1.9em;
+  padding: 5px;
+  margin-left: 10%;
+  color: #000;
+  
+ 
+
+}
+#div4{
+  display: flex;
+  flex-wrap: nowrap;
+  font-size: 1.9em;
+  flex-direction: column;
+  background-color: #303841;
+  gap:10px;
+
+}
+.paymentForm{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30%;
+    margin-top: 3%;
+    background-color: #303841;
+    color: white;
+    padding: 30px;
+    
+}
+
+select{
+    background-color:#FCE59A; 
+    
+    color:#000 ;
 }
 
 ul {
     list-style-type:none ;
 }
 
-
-
+label{
+    align-self: center;
+    font-size: 1.2em;
+}
+form{
+    gap: 4px;
+}
 ul li {
     transition: background-color 0.3s ease;
 }
@@ -181,4 +321,34 @@ a{
     background-color: #303841;
     color:white;
     height: 40px;
+    position: fixed;
+}
+.mainInfo{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px ;
+
+}
+
+.mainForm{
+  display: flex;
+  flex-direction: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  background-color: #FF5722;
+  border: 2px solid black;
+  padding: 20px 40px;
+}
+.min_div1{
+  display: flex;
+  flex-direction: column;
+}
+
+.min_div2{
+  display: flex;
+  flex-direction: column;
 }

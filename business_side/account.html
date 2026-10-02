@@ -3,22 +3,38 @@
     <head>
       <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>@C-zaWena#homepage</title>
-        <link  href="style.css" rel="stylesheet">
+        <link  href="../style.css" rel="stylesheet">
          </head>
     <body>
  <header>
-        <div class="mainInfo">
-          <div style="display: flex; flex-wrap:mwrap; flex-direction: row; gap: 20px; justify-content: center; align-items: center;">
-         <img src="/klogo.png" alt="logo" class="logo"> 
-          </div> 
-      </header>
+             <nav>
+            <div id="logoImg">
+                <img src="/klogo.png" alt="logo" class="logo">
+            </div>
 
-      <div class="paymentForm">
+            <div class="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </nav>
+        
+    <ul class="nav_links">
+                 <li class="nav_bar"><a href="index.html">Home</a></li>
+                  <li class="nav_bar" ><a href="more.html">about</a></li>
+                    <li class="nav_bar"  ><a href="more.html " style="background-color: #00B7CD;   color: #FCE59A; font-weight: bold; ">LOGIN</a></li>
+                  
+                   
+                   <li class="nav_bar" ><a href="/business_side/account.html">Get Started</a></li>
+              </ul> 
+</header>
+<div style="display:flex; justify-content: center; align-items:center;">
+        <div class="paymentForm">
         <h2 style="color: rgb(251, 109, 20);">C-zWena</h2>  
-      <form  action="profile.html" style="display: flex; flex-wrap: wrap; flex-direction: column;  color:#5b6e2e" id="visibleForm">
-        <label>Enter Business name:</label>
+      <form  action="profile.html" style="display: flex; flex-wrap: wrap; flex-direction: column;" id="visibleForm">
+        <label>Enter Business name</label>
         <input name="business_name"/>
-        <label>Service  Type:</label>
+        <label>Service  Type</label>
         <select name="service">
           <option>
             Funeral service provider
@@ -27,61 +43,36 @@
             Rental Property
           </option>
         </select>
-        <label>Enter  ID  Number:</label>
-        <input name="ID"  />
-        <label>Enter  Phone Number:</label>
-        <input name="phone_number"  />
-        <label>Bank Name:</label>
-        <input name="bank_name" />
-        <label>Bank Account:</label>
-        <input name="account_number" />
         
+        <label>Enter  ID  Number</label>
+        <input name="ID"  />
+        <label>Enter  Phone Numbe</label>
+        <input name="phone_number"  />
+        <label>Bank Name</label>
+        <input name="bank_name" />
+        <label>Bank Account</label>
+        <input name="account_number" />
         </form>
-      </div>
-      <div style="display: flex; justify-content: center; align-items: center; margin-top: 3%;  ">
+         <div style="display: flex; justify-content: center; align-items: center; margin-top: 3%;  ">
           <form action="dashboard.html">
-           <button>Submit</button> </form>
+           <button style="background-color: #DF301C; color: #FFF1D1; padding:10px;">Submit</button> 
+          </form>
       </div>
+      </div>
+     
+</div>
 
-    <footer>
 
-        <div class="end">
-           <p>
-            @Mthiyane_Software Solutions
-           </p>
-           <p> C-zaWena  online payment platform for cash users</p>
-        </div>
 
-    </footer>
-      <script>
-    document.getElementById("visibleForm").addEventListener('submit',async function(event){
-     event.preventDefault();
-    
-     const myform = document.getElementById("visibleForm");
-     const sentForm = new FormData(myform);
-
-     const response = await fetch('https://project.c-zwena.co.za/sign_up',
-      {
-        method:'Post',
-        body: sentForm
-      });
-
-   
-      if (!response.ok){
-        throw new Error(`HTTP error: ${response.status}`);
-            }
-
-      const data = await response.json();
-      console.log("Do for dollars ")
-      const status = data.status;
-      console.log('Success:', status);
-      if(status == "OK"){
-        console.log('Smile')
-        window.location.assign("welcome.html");
-      }
-      });
-
-                   </script>
+ <footer>
+  
+                 <div class="footer">
+                    <p>@C-zaWena Online payment platform<br> for Business with cash users</p>
+                </div>
+              
+               
+            </footer>
+        <script src="/script.js"></script>
     </body>
     
 

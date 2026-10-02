@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Dashboard</title>
-        <link rel="stylesheet" href="style.css" >
+        <link rel="stylesheet" href="/style.css" >
         <style>
 .btn {
   background-color: DodgerBlue;
@@ -20,11 +20,28 @@
 </style>
     </head>
     <body>
-    <header>
-        <div class="mainInfo">
-         <img src="/klogo.png" alt="logo" class="logo">
-        </div>
-      </header>
+     <header>
+             <nav>
+            <div id="logoImg">
+                <img src="/klogo.png" alt="logo" class="logo">
+            </div>
+
+            <div class="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </nav>
+        
+    <ul class="nav_links">
+                 <li class="nav_bar"><a href="index.html">Home</a></li>
+                  <li class="nav_bar" ><a href="more.html">about</a></li>
+                    <li class="nav_bar"  ><a href="more.html " style="background-color: #00B7CD;   color: #FCE59A; font-weight: bold; ">LOGIN</a></li>
+                  
+                   
+                   <li class="nav_bar" ><a href="/business_side/account.html">Get Started</a></li>
+              </ul> 
+</header>
 
       <div class="dashboard" >
         <div class="welcomeMsg">
@@ -175,6 +192,14 @@
 
 
       </div>
+   <footer>
   
+                 <div class="footer">
+                    <p>@C-zaWena Online payment platform<br> for Business with cash users</p>
+                </div>
+              
+               
+            </footer>
+        <script src="/script.js"></script>
     </body>
 </html>
