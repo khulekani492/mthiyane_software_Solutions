@@ -131,7 +131,7 @@ nav {
     
 }
 .nav_links{
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -177,8 +177,7 @@ a{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border:2px solid black;
-    padding: 20px;
+    padding: 30px;
     background-color: #303841;
     color:white;
     height: 40px;
