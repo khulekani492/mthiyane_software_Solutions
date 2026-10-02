@@ -212,10 +212,10 @@ button {
   flex-direction: row;
   gap:170px;
   font-size: 16px;
-  background-color: orangered;
+  background-color: #325E6A;
   color: #F5F5F5;
   padding: 80px ;
-  border: 2px solid black;
+  
   
    
 }
@@ -229,7 +229,7 @@ button {
 }
 #div2{
  
- background-color: #303841;
+ background-color: #325E6A;;
  color: #F5F5F5;
  display:flex;
  flex-wrap: nowrap;
@@ -238,7 +238,7 @@ button {
  height: 40%;
  align-items: center;
  gap:20px;
- padding: 10px 20px;
+ padding: 20px ;
 }
 
 #div3{
@@ -249,7 +249,7 @@ button {
   font-size: 1.9em;
   padding: 5px;
   margin-left: 10%;
-  color: #000;
+  
   
  
 
@@ -259,7 +259,8 @@ button {
   flex-wrap: nowrap;
   font-size: 1.9em;
   flex-direction: column;
-  background-color: #303841;
+  background-color: #D8C9A8;
+  color: #000;
   gap:10px;
 
 }
