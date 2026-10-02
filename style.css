@@ -1,8 +1,16 @@
- html,body{
+* {
+    box-sizing: border-box; /* Ensures padding does not break layout widths */
+}
+
+html,body{
     margin: 0%;
     padding: 0%;   
     background-color: rgb(255, 255, 255);
+     
 }
+
+   
+
 
 .bodyContent{
     background-color: blue;
@@ -90,17 +98,19 @@
     align-items: center;
     padding: 20px;
 }
-nav{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    padding: 10px;
+
+
+nav {
     position: sticky;
     top: 0;
-    background-color: white;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #ffffff;
+    display: flex;
     justify-content: space-between;
-    gap: 1%;
-
+    align-items: center;
+    padding: 10px 20px;
 }
 .hamburger{
     display: flex;
