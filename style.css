@@ -363,3 +363,98 @@ a{
   display: flex;
   flex-direction: column;
 }
+#clientDetails{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    
+    gap: 30px;
+    margin-top: 3%;
+    background-color: #303841;
+    color: white;
+    padding: 30px;
+}
+.clientinformation{
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    border: 2px solid yellow;
+    gap: 20px;
+}
+.clientsDetails{
+    margin-left: 3%;
+    margin-right: 4%;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #325E6A; 
+    color: floralwhite;
+    border: 3px solid #F5F5F5;
+    margin-bottom: 2%;
+    padding: 20px;
+    
+}
+
+.clientsDetails #labalDetail{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    gap:20px;
+    font-size: 23px;
+}
+.clientsDetails  #displayDetail{
+      display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    gap:20px;
+}
+
+.welcomeMsg{
+    gap: 1px;
+    display: flex;
+    flex-wrap: nowrap;
+
+}
+
+
+.clientsDetails  #paymentUI{
+   border: 2px solid white;  
+   display: flex;
+   flex-wrap: nowrap;
+   flex-direction: column;
+   
+}
+.paymentGraph{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    
+    
+}
+table{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 10%;
+    
+
+}
+    
+.btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}
+.pdf{
+    width: 300px;
+    height: 100px;
+}

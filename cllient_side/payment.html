@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dashboard</title>
+     
+
+       <link href="/style.css" rel="stylesheet">
+    </head>
+    <body>
+    
+       <nav>
+            <div id="logoImg">
+                <img src="/klogo.png" alt="logo" class="logo">
+            </div>
+
+            <div class="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </nav>
+          <ul class="nav_links">
+                 <li class="nav_bar"><a href="index.html">Home</a></li>
+                  <li class="nav_bar" ><a href="more.html">about</a></li>
+                    <li class="nav_bar"  ><a href="more.html " style="background-color: #00B7CD;   color: #FCE59A; font-weight: bold; ">LOGIN</a></li>
+                  
+                   
+                   <li class="nav_bar" ><a href="/business_side/account.html">Get Started</a></li>
+              </ul> 
+      
+        <div class="welcomeMsg">
+        <h1>Welcome to  C-zaWena </h1>
+           <div style="display:flex; flex-wrap: nowrap; justify-content: center; font-size: 2.6em; background-color: #325E6A; color: floralwhite; padding: 30px; justify-content: flex-start; margin-left: 3%; margin-right: 4%;">
+                <label>Client Profile</label>
+              </div>
+
+              <div class="clientsDetails " >
+                <div id="labalDetail">
+                        <label>Name</label>
+                  <label>Surname</label>
+                  <label>Service provider</label>
+                  <label>Amount</label>
+                </div>
+                 <div id="displayDetail">
+                <input/>
+               <input/>
+                <input/>
+                 <input/>
+              </div>
+
+              <div id="paymentUI">
+                 
+                     <h2 style=" background-color: #FF5722; padding: 10PX;" >VOUCHER PAYMENT</h2>
+                 
+                 
+                      <form>
+                    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 20px;">
+                    <label style="font-size: 40px;">Enter 16 digits</label>
+                    <input/>
+                
+                     <button style="background-color: green; color: #F5F5F5; font-size: 30px;">PAY NOW</button>
+                    </div>
+                 
+                
+                 </div>
+
+                 
+
+              </div>
+              
+              </div>
+              
+      
+    </div>
+
+       
+                        
+           <div class="paymentGraph">
+            <h2 style="text-align: center; font-size: 50px;">Payment history</h2>
+            <div style="display: flex; flex-direction:row; justify-content: center; align-items: center; gap:20px; background-color: orangered; margin-right: 10%; margin-left: 10%; color: #F5F5F5;"  >     
+                 <h1 style="text-align: center; font-size: 70px; color: #FFF1D1;">Year</h1>    
+               <p style="font-size: 50px;">2026</p>
+
+            </div>
+           
+        <table  style="font-size: 30px;">
+            <tr >
+                <th>Jan</th>
+                <th>Feb</th>
+                <th>Mar</th>
+                <th>Apr</th>
+                <th>May</th>
+                <th>Jun</th>
+                <th>Jul</th>
+                <th>Aug</th>
+                <th>Sep</th>
+                <th>Oct</th>
+                <th>Nov</th>
+                <th>Dec</th>
+            </tr>
+
+           <tr >
+            
+                <td style="border: 2px solid black; background-color: green; height: 50px;"> </td>   
+                <td style="border: 2px solid black; background-color: green; "></td>
+                 <td style="border: 2px solid black; background-color: red; "> </td>
+                <td style="border: 2px solid black; background-color: green; "></td>
+                <td style="border: 2px solid black; background-color: green; "></td>
+                <td style="border: 2px solid black; background-color: red; "></td>
+                <td style="border: 2px solid black; background-color: green; "></td>
+                <td style="border: 2px solid black; background-color: red; "></td>
+                <td style="border: 2px solid black; background-color: green; "></td>
+                <td style="border: 2px solid black; background-color: red; "></td>
+                <td style="border: 2px solid black; background-color: white;"></td>
+                <td style="border: 2px solid black; background-color: white;"></td> 
+            </tr>
+            
+        </table>
+       
+           </div>
+                         
+           <div style="border:2px solid black; margin-right: 80px; margin-left: 90px;">
+
+                  <div style="display: flex; flex-direction: row;  gap:70px; justify-content: center; align-items: center; font-size: 60px; ">
+        <label style=" color:#000;" >Pick a month </label>
+
+            <select style="width: 20%; height: 40%; font-size: 18px;" id="months" >
+                <option value="Jan">Jan</option>
+                <option value="Feb">Feb</option>
+                <option value="march" selected>March</option>
+                <option value="april" disabled>April</option>
+                <option value="Feb">May</option>
+                <option value="march" selected>June</option>
+                <option value="april" disabled>July</option></select>
+                    </div>
+                 
+        
+            <div style="display: flex; justify-content: center; border: 2px solid black; margin-top: 10%;  margin-right: 40%;margin-left: 20%; padding: 10px; height: 500px; flex-direction: column ;background-color: #325E6A; color: #F5F5F5;">
+                <h2 style="font-size: 40px;">Download PDF</h2>
+                    <iframe class="pdf" 
+                   src="/business_side/just_content.pdf"
+                  >
+                  
+                    </iframe>
+                    <!-- add icon library -->
+                       <div style="display: flex;  margin-top: 4%">
+                            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+               <button class="btn" ><i class="fa fa-download"></i> Download</button> 
+                    </div>
+                
+                    <div style="display: flex; justify-content: center; color: #FF5722; flex-direction: row; gap: 8px;" >
+                    <h2 style="color: white; font-size:40px;">Year</h2>
+                    <p style="font-size: 200%;">2026</p>
+                    
+                    </div>
+                    </div>
+          
+                    </div>
+
+                    <div style="display: flex; flex-direction: row; gap:30px; margin-top: 10%;" >
+                         <p style="text-align: left; font-size: 60px; margin-left: 10%;">Send on WhatsApp</p>
+                         <img src="WhatsApp_Logo_green.svg" height="200px" />
+                    </div>
+                    <div style="background-color: green; padding: 20px; margin-left: 10%; margin-right: 40%; color: #F5F5F5; margin-bottom: 5%;">
+                      <a style="padding: 40px; font-size: 50px;"  href="/business_side/account.html" style="color:#FFF1D1; padding:10px 15px; text-decoration:none;"><em style="color: #F5F5F5;">  Send  Receipt</em></a>  
+                    </div>
+                
+                    
+                    
+              
+                </div>  
+
+           </div>
+     
+
+      
+
+          
+
+     <div style="display:fixed; text-align:center; background-color: #303841; color:#F5F5F5; bottom: 0; width: 100%; padding:10px;">
+        
+          <p>@C-zaWena Online payment platform<br> for Business with cash users</p>
+                </div>
+            
+        <script src="/script.js"></script>
+    </body>
+</html>
