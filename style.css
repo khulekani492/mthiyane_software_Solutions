@@ -272,7 +272,7 @@ button {
     align-items: center;
     gap: 30%;
     margin-top: 3%;
-    background-color: #303841;
+    background-color: #325E6A;
     color: white;
     padding: 30px;
     
@@ -302,7 +302,7 @@ ul {
 }
 
 label{
-    align-self: center;
+    /* align-self: center; */
     font-size: 1.2em;
 }
 form{
@@ -457,4 +457,14 @@ table{
 .pdf{
     width: 300px;
     height: 100px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    
+    margin-bottom: 20px;
+    color: #FFF1D1;
+    font-size: 20px;
 }
