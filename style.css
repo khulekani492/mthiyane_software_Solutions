@@ -312,7 +312,7 @@ ul li {
     transition: background-color 0.3s ease;
 }
 ul li:hover {
-  background-color: #ffd000; /* Turns the item background blue */
+    background-color: #303841; /* Turns the item background blue */
   color: white;              /* Changes text color to white */
 }
 a{
