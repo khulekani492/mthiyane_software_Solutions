@@ -231,7 +231,6 @@ button, .btn {
     font-size: 1rem;
     cursor: pointer;
     border-radius: 4px;
-    border: 2px solid #333333;
     background-color: DodgerBlue;
     color: #ffffff;
     transition: background-color 0.2s ease;
@@ -364,7 +363,7 @@ footer, .footer {
     background-color: #303841;
     color: #ffffff;
     text-align: center;
-    padding: 24px;
+    padding: 4px;
     margin-top: 40px;
     width: 100%;
 }
