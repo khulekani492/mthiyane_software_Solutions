@@ -33,36 +33,40 @@
 
 
 
-<div style="display:flex; justify-content: center; align-items:center; margin-bottom: 60px; margin-top: 60px; margin-bottom: 50px; ">
-        <div class="paymentForm">
-        <h2 style="color: rgb(251, 109, 20);">C-zWena</h2>  
-      <form  action="https://backend.c-zwena.co.za/sign_up" method="post" style="display: flex; flex-wrap: wrap; flex-direction: column;" id="visibleForm">
-        <label>Enter Business name</label>
-        <input name="business_name"/>
-        <label>Service  Type</label>
-        <select name="service">
-          <option>
-            Funeral_service
-          </option>
-          <option>
-            Rental_Property
-          </option>
-        </select>
+<div style="display:flex; justify-content: center; align-items:center; margin: 60px 0 50px;">
+  <div class="paymentForm">
+    <h2 style="color: rgb(251, 109, 20);">C-zWena</h2>  
 
-        <label>Enter  ID  Number</label>
-        <input name="ID"  />
-        <label>Enter  Phone Number</label>
-        <input name="phone_number"  />
-        <label>Bank Name</label>
-        <input name="bank_name" />
-        <label>Bank Account</label>
-        <input name="account_number" />
-         <div style="display: flex; justify-content: center; align-items: center; margin-top: 3%;  ">
-          <button style="background-color: #DF301C; color: #FFF1D1; padding:10px;">Submit</button> 
-        </form>
-        
-          
+    <form id="myform" style="display: flex; flex-wrap: wrap; flex-direction: column;">
+      <label for="businessName">Enter Business name</label>
+      <input id="businessName" type="text" name="business_name" required />
+
+      <label for="service-type">Service Type</label>
+      <select id="service-type" name="service">
+        <option value="Funeral_service">Funeral_service</option>
+        <option value="Rental_Property">Rental_Property</option>
+      </select>
+
+      <label for="id_NO">Enter ID Number</label>
+      <input id="id_NO" name="ID" required />
+
+      <label for="phone-number">Enter Phone Number</label>
+      <input id="phone-number" name="phone_number" required />
+
+      <label for="bank-name">Bank Name</label>
+      <input id="bank-name" name="bank_name" />
+
+      <label for="bank-account">Bank Account</label>
+      <input id="bank-account" name="account_number" />
+
+      <div style="display: flex; justify-content: center; align-items: center; margin-top: 15px;">
+        <button type="submit" style="background-color: #DF301C; color: #FFF1D1; padding: 10px; cursor: pointer;">
+          Submit
+        </button> 
       </div>
+    </form>
+  </div>
+</div>
 
       </div>
     </div>
