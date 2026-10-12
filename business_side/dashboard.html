@@ -1,177 +1,164 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Dashboard</title>
-        <link rel="stylesheet" href="/style.css" >
-        <style>
-.btn {
-  background-color: DodgerBlue;
-  border: none;
-  color: white;
-  padding: 12px 30px;
-  cursor: pointer;
-  font-size: 20px;
-}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    .btn {
+      background-color: DodgerBlue;
+      border: none;
+      color: white;
+      padding: 12px 30px;
+      cursor: pointer;
+      font-size: 20px;
+    }
+    .btn:hover {
+      background-color: RoyalBlue;
+    }
+  </style>
+</head>
+<body>
+  
+    <nav>
+      <div id="logoImg">
+        <img src="/klogo.png" alt="logo" class="logo">
+      </div>
+      <div class="hamburger">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+    </nav>
+    
 
-/* Darker background on mouse-over */
-.btn:hover {
-  background-color: RoyalBlue;
-}
-</style>
-    </head>
-    <body>
-     <header>
-             <nav>
-            <div id="logoImg">
-                <img src="/klogo.png" alt="logo" class="logo">
-            </div>
+      <ul class="nav_links">
+        <li class="nav_bar"><a href="/index.html">Home</a></li>
+        <li class="nav_bar"><a href="/more.html">About</a></li>
+        <li class="nav_bar">
+          <a href="/business_side/login.html" style="background-color: #00B7CD; color: #FCE59A; font-weight: bold;">Login</a>
+        </li>
+        <li class="nav_bar"><a href="/business_side/account.html">Get Started</a></li>
+        <li class="nav_bar"><a href="/client_side/payment.html" style="color: #DF301C;">Payment Page</a></li>
+        <li class="nav_bar"><a href="/client_side/login.html" style="color: #DF301C;">Client Login</a></li>
+        <li class="nav_bar"><a href="/business_side/dashboard.html" style="color: #DF301C;">Dashboard</a></li>
+      </ul>
+    
 
-            <div class="hamburger">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-        </nav>
-        
-  <ul class="nav_links">
-                 <li class="nav_bar"><a href="/index.html">Home</a></li>
-                  <li class="nav_bar" ><a href="/more.html">about</a></li>
-                    <li class="nav_bar"  ><a href="/business_side/login.html " style="background-color: #00B7CD;   color: #FCE59A; font-weight: bold; ">LOGIN</a></li>
-                   <li class="nav_bar" ><a href="/business_side/account.html">Get Started</a></li>
-                   <li class="nav_bar" ><a href="/cllient_side/payment.html" style="color: #DF301C;">payment page</a></li>
-                   <li class="nav_bar" ><a href="/cllient_side/login.html" style="color: #DF301C;">CLient_LOGIN</a></li>
-                   <li class="nav_bar" ><a href="/business_side/dashboard.html" style="color: #DF301C;">dashboard</a></li>
-              </ul> 
-</header>
+  
 
-      <div class="dashboard" >
-        <div class="welcomeMsg">
-        <h1>Welcome to  C-zaWena businesness Name</h1c  >
+  <main class="dashboard" style="border: 2px solid white;">
+    <div class="welcomeMsg">
+      <h2>Welcome to <em style="color: #DF301C; font-size: 20px;">C-Zawena</em> Business Name</h2>
     </div>
 
-        <div class="clientSearch">
-              <div id="div1">
-            <h1 atyle="">C-zWena dashboard</h1> 
-            <div style="font-size: 2.2em; align-self: flex-start;">
-               
-                <label>Number of Clients linked</label> 
-            </div>
-            <div style="display: flex; gap:70px;">
-                 <span>500</span>
+    <div class="clientSearch" style="border: 2px snow;">
+      <div id="div1">
+        <h2> Dashboard</h2> 
+        <div style="font-size: 2.2em; align-self: flex-start;">
+          <p style="margin: 0;">Number of Clients linked</p> 
+        </div>
+        <div style="display: flex; gap: 70px;">
+          <span>500</span>
+        </div>
+        
+          
+           <a href="client_account.html" class="btn" style="background-color:#DF301C; color:#FFF1D1; width: fit-content; text-decoration:none;">Add New Client</a>
+    
+      </div>
 
-                
-                
-            </div>
-  <form action="client_account.html" >
-               <button style=" background-color: #325E6A;color:white;font-size: 1.3em; padding:10px;">Add New Client  </button>
-             </form>
+      <div id="div2">
+        <form action="tobackend" method="GET">
+          <label for="client-search" style="font-size: 1.8em; display: block;">Search Client</label>
+          <input id="client-search" type="text" name="search" placeholder="Enter ID Number">
+          <button style="background-color: orangered; color: white; font-size: 1.9em; border: none; cursor: pointer;" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
 
+    <div style="display: flex; justify-content: center; padding: 10px;">
+      <div style="display: flex; justify-content: center; font-size: 2.6em; color: #303841;  padding: 20px;">
+        <span>Client Profile</span>
+      </div>
+    </div>
+
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <div class="clientResults">
+        <div id="div3">   
+          <div style="display: flex; flex-direction: column;"> 
+            <label for="client-name">Client Name:</label>
+            <input id="client-name" type="text" placeholder="name" readonly>
+
+            <label for="client-id">Client ID:</label>
+            <input id="client-id" type="text" placeholder="15323424" readonly>
+          </div>           
+          <div style="display: flex; flex-direction: column;"> 
+            <label for="amount-due">Amount Due:</label>
+            <input id="amount-due" type="text" placeholder="R200" readonly>
+
+            <label for="policy-type">Policy Type:</label>
+            <input id="policy-type" type="text" placeholder="Plan A" readonly>
+          </div>
+        </div> 
+
+        <div id="div4">
+          <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center;">
+            <label for="months" style="color: #000;">Pick a month</label>
+            <select id="months" style="width: 70%; font-size: 18px;">
+              <option value="Jan">Jan</option>
+              <option value="Feb">Feb</option>
+              <option value="Mar" selected>March</option>
+              <option value="Apr" disabled>April</option>
+              <option value="May">May</option>
+              <option value="Jun">June</option>
+              <option value="Jul" disabled>July</option>
+            </select>
+          </div>
+
+          <div> 
+            <h2 style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; font-size: 36px; color: #000; gap: 10px;">
+              Client <em style="color: #010736;">Receipt</em>
+            </h2>
             
-        </div>
-        <div id="div2">
-         <label style="font-size: 1.8em;">Search Client</label>
-          <input type="text" name="search" placeholder="Enter ID Number" />
-              <form action="tobackend">
-                    <button style="background-color: orangered; color: white; font-size: 1.9em;" type="submit">Search</button>
-                </form>
-        </div>
-              </div>
+            <div style="display: flex; justify-content: center;">
+              <iframe class="pdf" src="just_content.pdf" title="Client Receipt" width="80%" height="40px"></iframe>
+            </div>
 
-              <div>
-                
-              </div>
-              <div style="display: flex; justify-content: center; padding: 10px; ">
-                 <div style="display:flex; flex-wrap: nowrap; justify-content: center; font-size: 2.6em; background-color: #303841; color: floralwhite; padding: 30px">
-                <label>Client Profile</label>
-              </div>
-              </div>
-       
-
-              <div style="display: flex; justify-content: center; align-items: center;">
-                
-<div class="clientResults">
-                <div id="div3">   
-                    <div style="display: flex; flex-wrap: wrap; flex-direction: column;"> 
-                        <label>Client Name:</label>
-                    <input placeholder="name" />
-                    <label>Client ID:</label>
-                    <input placeholder="15323424" />
-                    </div>           
-                   <div style="display: flex; flex-wrap: wrap; flex-direction: column;"> 
-                        <label>X Amount Due:</label>
-                    <input placeholder="R200" />
-                    <label>Policy Type</label>
-                    <input placeholder="Plan A" />
-                    </div>
-
-                </div> 
-
-
-
-                <div id="div4">
-                    <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; ">
-        <label style=" color:#000;" >Pick a month </label>
-            <select style="width: 70%; height: 40%; font-size: 18px;" id="months" >
-                <option value="Jan">Jan</option>
-                <option value="Feb">Feb</option>
-                <option value="march" selected>March</option>
-                <option value="april" disabled>April</option>
-                <option value="Feb">May</option>
-                <option value="march" selected>June</option>
-                <option value="april" disabled>July</option></select>
-                    </div>
-                    <div > 
-                    <h2  style="display:flex; flex-wrap: wrap; justify-content: center; align-items: center;  font-size:36px; color: #000; gap: 10px;" > Client  <em style="color: #010736;"> Receipt </em> </h2>
-                    
-                    <div style="display: flex; justify-content: center; ">
-                    <iframe class="pdf" 
-                   src="just_content.pdf"
-                  width="80%"
-                  height="40px">
-                    </iframe>
-                    <!-- add icon library -->
-               
-                    </div>
-                    <div style="display: flex; justify-content: center; align-items: center; margin-top: 4%">
-                            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-               <button class="btn" ><i class="fa fa-download"></i> Download</button> 
-                    </div>
-                
-                    <div style="display: flex; justify-content: center; color: #FF5722; flex-direction: row; gap: 8px;" >
-                    <h2 style="color: #000;">Year</h2>
-                    <p style="font-size: 200%;">2026</p>
-                    
-                    </div>
-                    </div>
-             
-                </div>  
-                
-              </div>
-              </div>
-
-     
-       
+            <div style="display: flex; justify-content: center; align-items: center; margin-top: 4%;">
+              <button class="btn" type="button"><i class="fa fa-download"></i> Download</button> 
+            </div>
         
-           <h1  >Payment history</h1>
-       
+            <div style="display: flex; justify-content: center; color: #FF5722; flex-direction: row; gap: 8px;">
+              <h2 style="color: #000; margin: 0;">Year</h2>
+              <p style="font-size: 200%; margin: 0;">2026</p>
+            </div>
+          </div>
+        </div>  
+      </div>
+    </div>
 
-                  <div style="display: flex; flex-direction: row; gap:10px; margin-top: 10%;" >
-                         <p style="text-align: left; font-size: 20px; margin-left: 10%;">Send on WhatsApp</p>
-                         <img src="/cllient_side/WhatsApp_Logo_green.svg" height="100px" />
-                    </div>
-                    <div style="background-color: green; padding: 10px; margin-left: 10%; margin-right: 20%; color: #F5F5F5; ">
-                      <a style="padding: 40px; font-size: 20px;"  href="/business_side/account.html" style="color:#FFF1D1; padding:10px 15px; text-decoration:none;"><em style="color: #F5F5F5;">  Send  Receipt</em></a>  
-                    </div>
+    <h1>Payment history</h1>
 
-      
-   <footer>
-  
-        <div style="position:block ; width: 100%; bottom: 0; background-color: #303841; color:#F5F5F5;padding: 10px;">
-        
-          <p style="text-align: center;" > C-Zawena — Making Monthly Payments Simple.</p>
-                </div>
-               
-            </footer>
-        <script src="/script.js"></script>
-    </body>
+    <div style="display: flex; flex-direction: row; align-items: center; gap: 10px; margin-top: 5%;">
+      <p style="font-size: 20px; margin-left: 10%;">Send on WhatsApp</p>
+      <img src="/cllient_side/WhatsApp_Logo_green.svg" alt="WhatsApp logo" height="100">
+    </div>
+
+    <div style="background-color: green; padding: 15px; margin-left: 10%; margin-right: 20%; width: fit-content; border-radius: 4px;">
+      <a href="/business_side/account.html" style="color: #F5F5F5; font-size: 20px; text-decoration: none; font-weight: bold;">
+        Send Receipt
+      </a>  
+    </div>
+  </main>
+
+  <footer>
+    <div style="width: 100%; background-color: #303841; color: #F5F5F5; padding: 10px;">
+      <p style="text-align: center; margin: 0;">C-Zawena — Making Monthly Payments Simple.</p>
+    </div>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
 </html>

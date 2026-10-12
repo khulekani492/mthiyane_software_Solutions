@@ -1,83 +1,73 @@
 <!DOCTYPE html>
-<html>
-    <head>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>@C-zaWena#homepage</title>
-        <link  href="../style.css" rel="stylesheet">
-         </head>
-    <body>
-       <header>
-             <nav>
-            <div id="logoImg">
-                <img src="/klogo.png" alt="logo" class="logo">
-            </div>
-
-            <div class="hamburger">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-        </nav>
-        
-  <ul class="nav_links">
-                 <li class="nav_bar"><a href="/index.html">Home</a></li>
-                  <li class="nav_bar" ><a href="/more.html">about</a></li>
-                    <li class="nav_bar"  ><a href="/business_side/login.html " style="background-color: #00B7CD;   color: #FCE59A; font-weight: bold; ">LOGIN</a></li>
-                   <li class="nav_bar" ><a href="/business_side/account.html">Get Started</a></li>
-                   <li class="nav_bar" ><a href="/cllient_side/payment.html" style="color: #DF301C;">payment page</a></li>
-                   <li class="nav_bar" ><a href="/cllient_side/login.html" style="color: #DF301C;">CLient_LOGIN</a></li>
-                   <li class="nav_bar" ><a href="/business_side/dashboard.html" style="color: #DF301C;">dashboard</a></li>
-              </ul> 
-            </header>
-
-
-
-
-<div style="display:flex; justify-content: center; align-items:center; margin: 60px 0 50px;">
-  <div class="paymentForm">
-    <h2 style="color: rgb(251, 109, 20);">C-zWena</h2>  
-
-    <form id="myform" style="display: flex; flex-wrap: wrap; flex-direction: column;">
-      <label for="businessName">Enter Business name</label>
-      <input id="businessName" type="text" name="business_name" required />
-
-      <label for="service-type">Service Type</label>
-      <select id="service-type" name="service">
-        <option value="Funeral_service">Funeral_service</option>
-        <option value="Rental_Property">Rental_Property</option>
-      </select>
-
-      <label for="id_NO">Enter ID Number</label>
-      <input id="id_NO" name="ID" required />
-
-      <label for="phone-number">Enter Phone Number</label>
-      <input id="phone-number" name="phone_number" required />
-
-      <label for="bank-name">Bank Name</label>
-      <input id="bank-name" name="bank_name" />
-
-      <label for="bank-account">Bank Account</label>
-      <input id="bank-account" name="account_number" />
-
-      <div style="display: flex; justify-content: center; align-items: center; margin-top: 15px;">
-        <button type="submit" style="background-color: #DF301C; color: #FFF1D1; padding: 10px; cursor: pointer;">
-          Submit
-        </button> 
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@C-zaWena#homepage</title>
+    <link href="../style.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav>
+      <div id="logoImg">
+        <img src="/klogo.png" alt="logo" class="logo">
       </div>
-    </form>
-  </div>
-</div>
+      <div class="hamburger">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+    </nav>
 
+    <ul class="nav_links">
+      <li class="nav_bar"><a href="/index.html">Home</a></li>
+      <li class="nav_bar"><a href="/more.html">About</a></li>
+      <li class="nav_bar">
+        <a href="/business_side/login.html" style="background-color: #00B7CD; color: #FCE59A; font-weight: bold;">LOGIN</a>
+      </li>
+      <li class="nav_bar"><a href="/business_side/account.html">Get Started</a></li>
+      <li class="nav_bar"><a href="/client_side/payment.html" style="color: #DF301C;">Payment Page</a></li>
+      <li class="nav_bar"><a href="/client_side/login.html" style="color: #DF301C;">Client Login</a></li>
+      <li class="nav_bar"><a href="/business_side/dashboard.html" style="color: #DF301C;">Dashboard</a></li>
+    </ul>
+
+    <div style="display: flex; justify-content: center; align-items: center; margin: 60px 0 50px;">
+      <div class="paymentForm">
+        <p>Register your business on <em style="color: #DF301C; font-size: 20px;">C-Zawena</em></p>
+
+        <!-- Form with method, action, and valid submit button -->
+        <form id="myform" action="/business_side/account.html" method="POST" style="display: flex; flex-direction: column; gap: 8px;">
+          <label for="businessName">Enter Business Name</label>
+          <input id="businessName" type="text" name="business_name" required>
+
+          <label for="service-type">Service Type</label>
+          <select id="service-type" name="service">
+            <option value="Funeral_service">Funeral Service</option>
+            <option value="Rental_Property">Rental Property</option>
+          </select>
+
+          <label for="id_NO">Enter ID Number</label>
+          <input id="id_NO" type="text" name="id_number" required>
+
+          <label for="phone-number">Enter Phone Number</label>
+          <input id="phone-number" type="tel" name="phone_number" required>
+
+          <label for="bank-name">Bank Name</label>
+          <input id="bank-name" type="text" name="bank_name">
+
+          <label for="bank-account">Bank Account</label>
+          <input id="bank-account" type="text" name="account_number">
+
+          <button type="submit" class="btn" style="background-color: #DF301C; color: #FFF1D1; width: fit-content; padding: 8px 16px; border: none; cursor: pointer; margin-top: 10px;">
+            CREATE
+          </button>
+        </form>
       </div>
     </div>
- 
-            <div style="position:block ; width: 100%; bottom: 0; background-color: #303841; color:#F5F5F5;padding: 10px;">
-        
-          <p style="text-align: center;" > C-Zawena — Making Monthly Payments Simple.</p>
-                </div>
-                
-        <script src="/script.js"></script>
-    </body>
-    
 
+    <footer style="width: 100%; background-color: #303841; color: #F5F5F5; padding: 10px;">
+      <p style="text-align: center; margin: 0;">C-Zawena — Making Monthly Payments Simple.</p>
+    </footer>
+
+    <script src="/script.js"></script>
+  </body>
 </html>

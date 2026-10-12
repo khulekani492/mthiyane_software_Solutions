@@ -1,77 +1,64 @@
 <!DOCTYPE html>
-<html>
-    <head>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>@C-zaWena#busines_account</title>
-        
-        <link  href="/style.css" rel="stylesheet">
-    </head>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@C-zaWena#busines_account</title>
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
     
-    <body>
-          <header>
-             <nav>
-            <div id="logoImg">
-                <img src="/klogo.png" alt="logo" class="logo">
-            </div>
-
-            <div class="hamburger">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-        </nav>
-  <ul class="nav_links">
-                 <li class="nav_bar"><a href="i/ndex.html">Home</a></li>
-                  <li class="nav_bar" ><a href="/more.html">about</a></li>
-                    <li class="nav_bar"  ><a href="/business_side/login.html " style="background-color: #00B7CD;   color: #FCE59A; font-weight: bold; ">LOGIN</a></li>
-                   <li class="nav_bar" ><a href="/business_side/account.html">Get Started</a></li>
-                   <li class="nav_bar" ><a href="/cllient_side/payment.html" style="color: #DF301C;">payment page</a></li>
-                   <li class="nav_bar" ><a href="/cllient_side/login.html" style="color: #DF301C;">CLient_LOGIN</a></li>
-                   <li class="nav_bar" ><a href="/business_side/dashboard.html" style="color: #DF301C;">dashboard</a></li>
-              </ul> 
-</header>
-
-      <div style="display: flex; justify-content: center; align-items: center; margin-top: 1%; margin-bottom: 5%;"> 
-        <h2>Create An Account</h2>
-      </div>
-       
-      <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; ">
- <div class="mainForm">
-        <div class="min_div1">
-            <label>Name :</label>
-            <input placeholder=" enter name"  />
-        <label>Surname :</label>
-            <input placeholder=" enter surname"  />
-         <label>ID Number :</label>
-            <input placeholder=" Id Number"  />      
-              <label>Cellphone: </label>
-            <input placeholder=" celly"  />
-        <label>Service provider: </label>
-        <select name="service">
-          <option>
-            Funeral service provider
-          </option>
-          <option>
-            Rental Property
-          </option>
-        </select>
-
-         <label>Provider Business Name</label>
-            <input placeholder=" business name"  />           
+      <nav>
+        <div id="logoImg">
+          <img src="/klogo.png" alt="logo" class="logo">
         </div>
-          <div class="min_div2">
-    
-        <a href="/business_side/dashboard.html"
-          style="background-color:#DF301C; color:#FFF1D1; padding:10px 15px; text-decoration:none; margin-top: 5%; text-align: center;">Create</a>
-      </div>
-      </div>
 
-    </div>
-           <div style="display:fixed; text-align:center; background-color: #303841; color:#F5F5F5; bottom: 0; width: 100%; padding:10px;">
-        
-          <p>@C-zaWena Online payment platform<br> for Business with cash users</p>
-                </div>
-            
-        <script src="/script.js"></script>
-    </body>
+        <div class="hamburger">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+      </nav>
+
+      <ul class="nav_links">
+        <li class="nav_bar"><a href="/index.html">Home</a></li>
+        <li class="nav_bar"><a href="/more.html">About</a></li>
+        <li class="nav_bar">
+          <a href="/business_side/login.html" style="background-color: #00B7CD; color: #FCE59A; font-weight: bold;">Login</a>
+        </li>
+        <li class="nav_bar"><a href="/business_side/account.html">Get Started</a></li>
+        <li class="nav_bar"><a href="/client_side/payment.html" style="color: #DF301C;">Payment Page</a></li>
+        <li class="nav_bar"><a href="/client_side/login.html" style="color: #DF301C;">Client Login</a></li>
+        <li class="nav_bar"><a href="/business_side/dashboard.html" style="color: #DF301C;">Dashboard</a></li>
+      </ul>
+    
+
+    <main class="main-content">
+      <div class="paymentForm">
+        <p>Register your client on <em style="color: #DF301C; font-size: 20px;">C-Zawena</em></p>
+
+        <form id="myform" class="client-form" action="/business_side/account.html" method="POST">
+          <label for="clientName">Enter Client Name</label>
+          <input id="clientName" type="text" name="client_name" required>
+
+          <label for="id_NO">Enter ID Number</label>
+          <input id="id_NO" type="text" name="id_number" required>
+
+          <label for="phone-number">Enter WhatsApp Phone Number</label>
+          <input id="phone-number" type="tel" name="phone_number" required>
+
+          <label for="client-amount">Enter Client Amount</label>
+          <input id="client-amount" type="number" step="any" name="client_amount" placeholder="e.g. 200" required>
+
+          <button type="submit" class="btn-submit">Create Client</button>
+        </form>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p>@C-zaWena Online payment platform<br>for Business with cash users</p>
+    </footer>
+
+    <script src="/script.js"></script>
+  </body>
 </html>
