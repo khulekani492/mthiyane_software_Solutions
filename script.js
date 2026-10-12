@@ -46,10 +46,13 @@ function BusinessesForm() {
         }
 
    const data = await response.json();
-   // console.log('Success:', data);
+   console.log('Success:', data);
    if(data.status == "OK"){
-      console.log("do something homie")
+      sessionStorage.setItem("businessName",data.businessName);
+    
       window.location.href = "dashboard.html"
+  
+  
    }
 
     } catch (error) {

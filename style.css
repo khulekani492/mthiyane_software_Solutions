@@ -251,6 +251,11 @@ button:hover, .btn:hover {
     padding: 24px;
 }
 
+.clientSearch #bsName{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.2em;
+}
+
 .clientResults {
     display: flex;
     flex-direction: column;
