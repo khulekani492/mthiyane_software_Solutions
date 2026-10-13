@@ -151,6 +151,19 @@ margi-nleft: 0%;
     padding: 20px;
 }
 
+
+/* --- Footer --- */
+.site-footer {
+  flex-shrink: 0;
+  width: 100%;
+  background-color: #303841;
+  color: #F5F5F5;
+  text-align: center;
+  
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
 .businessAccount,
 .clientAccount #actions {
     display: flex;
@@ -163,7 +176,6 @@ margi-nleft: 0%;
 .welcomeMsg {
     display: flex;
     flex-direction: column;
-    gap: 8px;
     font-size: 1.1rem;
     margin-left: 2%;
 }
@@ -171,7 +183,7 @@ margi-nleft: 0%;
 .dashboard {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 10px;
     border: 2px solid #938985;
     padding: 24px;
 }
@@ -244,10 +256,9 @@ button:hover, .btn:hover {
 .clientSearch {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 4px;
     border: 2px solid #beb2b2;
-    justify-content: center;
-    align-items: center;
+
     padding: 24px;
 }
 
@@ -362,6 +373,18 @@ th, td {
     height: auto;
 }
 
+.no-scrollbar {
+    /* Firefox */
+    scrollbar-width: none; 
+    
+    /* IE and Legacy Edge */
+    -ms-overflow-style: none; 
+}
+
+/* Chrome, Safari, and Opera */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
 /* ==========================================================================
    Footer
    ========================================================================== */

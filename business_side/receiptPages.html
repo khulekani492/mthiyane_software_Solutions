@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Receipt Book - C-Zawena</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    /* Viewer layout */
+    .viewer-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 50px 20px;
+      min-height: calc(100vh - 220px);
+      background-color: #f4f6f8;
+    }
+
+    .booklet-card {
+      background: #ffffff;
+      border: 1px solid #dcdcdc;
+      border-radius: 12px;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+      max-width: 520px;
+      width: 100%;
+      box-sizing: border-box;
+      /* ensure arrows sit toward bottom when card is tall */
+      min-height: 520px;
+    }
+
+    /* Distinct top header for the page title */
+    .booklet-header {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      text-align: center;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #d50909;
+    }
+
+    .page-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #303841;
+      margin: 0;
+      letter-spacing: 0.5px;
+    }
+
+    .page-subtitle {
+      font-size: 0.85rem;
+      color: #DF301C;
+      margin: 4px 0 0 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Image stage - centered */
+    .image-stage {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      flex: 1 1 auto; /* let it grow so controls are pushed down */
+      padding: 12px 0;
+    }
+
+    /* Receipt image wrapper */
+    .booklet-image-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px;
+      background: #fafafa;
+      border: 1px dashed #cccccc;
+      border-radius: 8px;
+    }
+
+    .booklet-image-wrap img {
+      height: 220px;
+      width: 175px;
+      object-fit: contain;
+      cursor: pointer;
+      display: block;
+      transition: transform 0.2s ease;
+    }
+
+    .booklet-image-wrap img:hover {
+      transform: scale(1.02);
+    }
+
+    /* Eye view action button */
+    .eye-view-btn {
+      background-color: #DF301C;
+      color: #000000;
+      border: none;
+      padding: 12px 28px;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .eye-view-btn:hover {
+      background-color: #00B7CD;
+      transform: translateY(-1px);
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Controls row (arrows) at the bottom */
+   
+
+    /* Modal / Lightbox */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .modal-box {
+      background: #ffffff;
+      padding: 24px;
+      border-radius: 10px;
+      max-width: 90vw;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 16px;
+      font-size: 32px;
+      font-weight: bold;
+      color: #303841;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .modal-box img {
+      max-width: 100%;
+      max-height: 75vh;
+      object-fit: contain;
+      margin-top: 14px;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 420px) {
+      .booklet-image-wrap img {
+        height: 180px;
+        width: 140px;
+      }
+      .nav-arrow-btn {
+        width: 48px;
+        height: 48px;
+      }
+      .booklet-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Original Navigation Header -->
+  <nav>
+    <div id="logoImg">
+      <img src="/klogo.png" alt="logo" class="logo">
+    </div>
+    <div class="hamburger">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+  </nav>
+
+  <ul class="nav_links">
+    <li class="nav_bar"><a href="/index.html">Home</a></li>
+    <li class="nav_bar"><a href="/more.html">About</a></li>
+    <li class="nav_bar">
+      <a href="/business_side/login.html" style="background-color: #00B7CD; color: #FCE59A; font-weight: bold;">Login</a>
+    </li>
+    <li class="nav_bar"><a href="/business_side/account.html">Get Started</a></li>
+    <li class="nav_bar"><a href="/client_side/payment.html" style="color: #DF301C;">Payment Page</a></li>
+    <li class="nav_bar"><a href="/client_side/login.html" style="color: #DF301C;">Client Login</a></li>
+    <li class="nav_bar"><a href="/business_side/dashboard.html" style="color: #DF301C;">Dashboard</a></li>
+  </ul>
+
+  <!-- Main Booklet Viewer Area -->
+  <main class="viewer-container">
+    <div class="booklet-card">
+
+      <!-- Header: Separated Title & Subtitle with spacing -->
+      <div class="booklet-header">
+        <pclass="page-title"  >Digital Cash Receipt Book</p>
+        <h2 id="pageLabel"  class="page-subtitle"         >  1 of 30       </h2>
+        
+      </div>
+
+      <!-- Image stage (centered and allowed to grow) -->
+      <div class="image-stage">
+        <div class="booklet-image-wrap">
+          <img id="receiptImage" src="c-zWenareceipt-template-row (Edited).png" alt="c-zWena receipt template" onclick="openModal()" />
+        </div>
+      </div>
+
+      <!-- Dedicated View Action -->
+      <button class="eye-view-btn" onclick="openModal()">
+        <i class="fa fa-eye"></i> View Full Page
+      </button>
+
+      <!-- Controls row at the bottom with arrows -->
+      <div class="controls-row" aria-hidden="false">
+        <button id="prevBtn" class="nav-arrow-btn" onclick="prevPage()" title="Previous Page">
+          <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        </button>
+
+        <button id="nextBtn" class="nav-arrow-btn" onclick="nextPage()" title="Next Page">
+          <i class="fa fa-chevron-right" aria-hidden="true"></i>
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Fullscreen View Modal -->
+  <div id="imageModal" class="modal-overlay" onclick="closeModalOnOutside(event)">
+    <div class="modal-box">
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+      <h3 id="modalPageTitle" style="margin: 0; color: #DF301C;"> Page 1 of 30</h3>
+      <img src="c-zWenareceipt-template-row (Edited).png" alt="c-zWena full receipt preview" />
+    </div>
+  </div>
+
+  <!-- Original Footer -->
+  <footer>
+    <div style="width: 100%; background-color: #303841; color: #F5F5F5; padding: 10px;">
+      <p style="text-align: center; margin: 0;">C-Zawena — Making Monthly Payments Simple.</p>
+    </div>
+  </footer>
+
+  <script>
+    let currentPage = 1;
+    const totalPages = 30;
+
+    function updatePage() {
+      const pageText = `Receipt Page ${currentPage} of ${totalPages}`;
+      document.getElementById('pageLabel').textContent = pageText;
+      document.getElementById('modalPageTitle').textContent = pageText;
+      document.getElementById('prevBtn').disabled = (currentPage === 1);
+      document.getElementById('nextBtn').disabled = (currentPage === totalPages);
+    }
+
+    function prevPage() {
+      if (currentPage > 1) {
+        currentPage--;
+        updatePage();
+      }
+    }
+
+    function nextPage() {
+      if (currentPage < totalPages) {
+        currentPage++;
+        updatePage();
+      }
+    }
+
+    function openModal() {
+      document.getElementById('imageModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('imageModal').style.display = 'none';
+    }
+
+    function closeModalOnOutside(event) {
+      if (event.target.id === 'imageModal') {
+        closeModal();
+      }
+    }
+
+    // Keyboard navigation (Left & Right arrows)
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowLeft') prevPage();
+      if (e.key === 'ArrowRight') nextPage();
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // Initialize display state
+    updatePage();
+  </script>
+</body>
+</html>

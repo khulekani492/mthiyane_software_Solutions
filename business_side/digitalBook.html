@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Receipt Book — Pricing & Viewer</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    /* Page layout */
+    body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color:#303841; background:#f4f6f8; }
+    nav { display:flex; align-items:center; gap:16px; padding:12px 20px; background:#fff; border-bottom:1px solid #eee; }
+    nav img.logo { height:36px; }
+    .hamburger { margin-left:auto; display:flex; gap:4px; align-items:center; cursor:pointer; }
+    .hamburger .bar { width:20px; height:2px; background:#444; }
+
+    .nav_links { display:flex; gap:8px; list-style:none; padding:0 20px; margin:0; background:transparent; }
+    .nav_links .nav_bar a { text-decoration:none; padding:8px 12px; color:#303841; display:inline-block; border-radius:6px; }
+    .nav_links .nav_bar a[style] { /* preserves inline styles from original */ }
+
+    main.viewer-container {
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:flex-start;
+      padding:40px 20px;
+      min-height: calc(100vh - 220px);
+      box-sizing:border-box;
+    }
+
+    .booklet-card {
+      background: #ffffff;
+      border: 1px solid #dcdcdc;
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      max-width: 920px;
+      width: 100%;
+      box-sizing: border-box;
+      min-height: 480px;
+    }
+
+    .booklet-header { width:100%; text-align:center; padding-bottom:10px; border-bottom:2px solid #f0f0f0; }
+    .page-title { font-size:1.25rem; margin:0; font-weight:700; color:#303841; }
+    .page-subtitle { margin:4px 0 0; color:#777; font-size:.85rem; text-transform:uppercase; letter-spacing:1px; }
+
+    /* Viewer area */
+    .viewer-grid { display:grid; grid-template-columns: 1fr 320px; gap:18px; width:100%; align-items:start; padding-top:12px; }
+    .viewer-main { display:flex; flex-direction:column; align-items:center; gap:12px; }
+    .booklet-image-wrap {
+      width:100%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:#fafafa;
+      border:2px solid #DF301C;
+      border-radius:8px;
+      padding:14px;
+      min-height:320px;
+      box-sizing:border-box;
+    }
+    /* PDF embed */
+    #pdfViewer {
+      width:100%;
+      height:100%;
+      min-height:280px;
+      border:none;
+      background:#fff;
+    }
+
+    /* Full-view button */
+    .eye-view-btn {
+      background-color: #FFE600;
+      color: #000;
+      border: none;
+      padding: 10px 18px;
+      font-size: 15px;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      box-shadow:0 3px 8px rgba(0,0,0,0.08);
+    }
+
+    /* Controls row (rectangular) */
+    .controls-row {
+      width:100%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:14px;
+      margin-top:6px;
+      padding-top:6px;
+      border-top:1px solid #f0f0f0;
+    }
+    .nav-arrow-btn {
+      background-color: #00B7CD;
+      color: #fff;
+      border: none;
+      width: 120px;
+      height: 42px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      transition:all .16s ease;
+      box-shadow:0 3px 8px rgba(0,183,205,0.22);
+    }
+    .nav-arrow-btn:hover:not(:disabled) { transform: translateY(-2px); background:#0093a4; }
+    .nav-arrow-btn:disabled { background:#d6d6d6; color:#888; cursor:not-allowed; box-shadow:none; transform:none; }
+
+    /* Pricing column */
+    .pricing-col { display:flex; flex-direction:column; gap:12px; width:100%; max-width:320px; }
+    .pricing-card { background:#fff; border:1px solid #e8e8e8; border-radius:10px; padding:14px; display:flex; flex-direction:column; gap:10px; box-shadow:0 6px 18px rgba(0,0,0,0.04); }
+    .pricing-card.selected { border-color:#00B7CD; box-shadow:0 8px 22px rgba(0,183,205,0.08); }
+    .price { font-size:1.25rem; font-weight:800; color:#00B7CD; }
+    .pages { color:#555; font-weight:600; }
+    .buy-btn { margin-top:6px; background:#00B7CD; color:#fff; border:none; padding:8px 12px; border-radius:8px; cursor:pointer; font-weight:700; }
+    .buy-btn.secondary { background:#f2f2f2; color:#333; font-weight:600; }
+
+    /* Footer */
+    footer { margin-top:22px; width:100%; background:#303841; color:#F5F5F5; padding:10px 0; text-align:center; }
+
+    /* Modal */
+    .modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.8); z-index:9999; justify-content:center; align-items:center; padding:20px; }
+    .modal-box { width:90%; max-width:1200px; background:#fff; border-radius:10px; padding:12px; position:relative; display:flex; flex-direction:column; gap:10px; }
+    .modal-close { position:absolute; top:8px; right:12px; font-size:28px; cursor:pointer; color:#222; }
+    .modal-pdf { width:100%; height:80vh; border:none; }
+
+    @media (max-width: 980px) {
+      .viewer-grid { grid-template-columns: 1fr; }
+      .pricing-col { max-width:none; width:100%; }
+      .booklet-card { min-height: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header (same as provided) -->
+  <nav>
+    <div id="logoImg">
+      <img src="/klogo.png" alt="logo" class="logo">
+    </div>
+    <div class="hamburger" aria-hidden="true">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+  </nav>
+
+  <ul class="nav_links" aria-label="Main navigation">
+    <li class="nav_bar"><a href="/index.html">Home</a></li>
+    <li class="nav_bar"><a href="/more.html">About</a></li>
+    <li class="nav_bar">
+      <a href="/business_side/login.html" style="background-color: #00B7CD; color: #FCE59A; font-weight: bold;">Login</a>
+    </li>
+    <li class="nav_bar"><a href="/business_side/account.html">Get Started</a></li>
+    <li class="nav_bar"><a href="/client_side/payment.html" style="color: #DF301C;">Payment Page</a></li>
+    <li class="nav_bar"><a href="/client_side/login.html" style="color: #DF301C;">Client Login</a></li>
+    <li class="nav_bar"><a href="/business_side/dashboard.html" style="color: #DF301C;">Dashboard</a></li>
+  </ul>
+
+  <!-- Main content -->
+  <main class="viewer-container">
+    <div class="booklet-card">
+      <div class="booklet-header">
+        <h2 id="pageLabel" class="page-title">Receipt Page 1</h2>
+        <p class="page-subtitle">Digital Cash Receipt Book — Preview & Pricing</p>
+      </div>
+
+      <div class="viewer-grid">
+        <!-- LEFT: Viewer -->
+        <div class="viewer-main">
+          <div class="booklet-image-wrap" title="Click to open fullscreen">
+            <!-- PDF viewer: replace 'receipts.pdf' with your PDF path -->
+        <img src="c-zWenareceipt-template-row (Edited).png" width="200px"/>
+          </div>
+
+     
+
+        </div>
+
+        <!-- RIGHT: Pricing -->
+        <aside class="pricing-col" aria-label="Pricing options">
+          <div class="pricing-card" id="pkg1">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <div>
+                <div class="price">R20</div>
+                <div class="pages">30 pages</div>
+              </div>
+              <div style="font-weight:700;color:#666">Starter</div>
+            </div>
+            <p style="margin:0;color:#666;font-size:.95rem;">Basic set — good for short runs and testing.</p>
+            <div style="display:flex;gap:8px;">
+              <button class="buy-btn" onclick="selectPackage(20, 30, 'R20 — 30 pages')">Select</button>
+              <button class="buy-btn secondary" onclick="purchase(20,30)">Buy</button>
+            </div>
+          </div>
+
+          <div class="pricing-card" id="pkg2">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <div>
+                <div class="price">R50</div>
+                <div class="pages">60 pages</div>
+              </div>
+              <div style="font-weight:700;color:#666">Standard</div>
+            </div>
+            <p style="margin:0;color:#666;font-size:.95rem;">More pages for regular use.</p>
+            <div style="display:flex;gap:8px;">
+              <button class="buy-btn" onclick="selectPackage(50, 60, 'R50 — 60 pages')">Select</button>
+              <button class="buy-btn secondary" onclick="purchase(50,60)">Buy</button>
+            </div>
+          </div>
+
+          <div class="pricing-card" id="pkg3">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <div>
+                <div class="price">R150</div>
+                <div class="pages">100 pages</div>
+              </div>
+              <div style="font-weight:700;color:#666">Pro</div>
+            </div>
+            <p style="margin:0;color:#666;font-size:.95rem;">Best value — long-run receipts.</p>
+            <div style="display:flex;gap:8px;">
+              <button class="buy-btn" onclick="selectPackage(150, 100, 'R150 — 100 pages')">Select</button>
+              <button class="buy-btn secondary" onclick="purchase(150,100)">Buy</button>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- Fullscreen modal -->
+  <div id="imageModal" class="modal-overlay" onclick="closeModalOnOutside(event)">
+    <div class="modal-box">
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+      <h3 id="modalPageTitle" style="margin:0;color:#DF301C;">Full page view</h3>
+      <iframe id="modalPdf" class="modal-pdf" src="receipts.pdf#page=1" aria-label="Full PDF view"></iframe>
+    </div>
+  </div>
+
+  <footer>
+    <div style="width:100%; background-color: #303841; color:#F5F5F5; padding:10px;">
+      <p style="text-align:center; margin:0;">C-Zawena — Making Monthly Payments Simple.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Viewer state
+    let currentPage = 1;
+    let totalPages = 30; // default package pages
+    let pdfBase = 'receipts.pdf'; // change to your actual PDF filename/path
+    const pageLabel = document.getElementById('pageLabel');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const pdfViewer = document.getElementById('pdfViewer');
+    const modalPdf = document.getElementById('modalPdf');
+    const pdfFallback = document.getElementById('pdfFallback');
+
+    function updateViewer() {
+      // update label and embed page via #page fragment
+      pageLabel.textContent = `Receipt Page ${currentPage} of ${totalPages}`;
+      const src = `${pdfBase}#page=${currentPage}`;
+      pdfViewer.src = src;
+      modalPdf.src = src;
+      pdfFallback.href = pdfBase;
+      prevBtn.disabled = currentPage <= 1;
+      nextBtn.disabled = currentPage >= totalPages;
+    }
+
+    function prevPage() {
+      if (currentPage > 1) {
+        currentPage--;
+        updateViewer();
+      }
+    }
+
+    function nextPage() {
+      if (currentPage < totalPages) {
+        currentPage++;
+        updateViewer();
+      }
+    }
+
+    function openModal() {
+      document.getElementById('imageModal').style.display = 'flex';
+      document.getElementById('modalPageTitle').textContent = `Receipt Page ${currentPage} of ${totalPages}`;
+    }
+    function closeModal() {
+      document.getElementById('imageModal').style.display = 'none';
+    }
+    function closeModalOnOutside(e) {
+      if (e.target.id === 'imageModal') closeModal();
+    }
+
+    // Select package: set totalPages and visually highlight the chosen card
+    function selectPackage(price, pages, label) {
+      totalPages = pages;
+      currentPage = 1;
+      // highlight selected card
+      document.querySelectorAll('.pricing-card').forEach(c => c.classList.remove('selected'));
+      if (price === 20) document.getElementById('pkg1').classList.add('selected');
+      if (price === 50) document.getElementById('pkg2').classList.add('selected');
+      if (price === 150) document.getElementById('pkg3').classList.add('selected');
+      updateViewer();
+      alert('Selected: ' + label + '\nYou can now preview and click Buy to proceed.');
+    }
+
+    // Purchase stub: replace with real checkout integration
+    function purchase(price, pages) {
+      // In production, call your payment API / redirect to checkout
+      alert(`Purchase request:\nPrice: R${price}\nPages: ${pages}\n\n(This is a demo. Integrate with your payment gateway.)`);
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') prevPage();
+      if (e.key === 'ArrowRight') nextPage();
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // Initialize
+    updateViewer();
+  </script>
+</body>
+</html>
