@@ -48,6 +48,7 @@ function  saveClient () {
       //    if(!response.ok){
    const response = await fetch('https://backend.c-zwena.co.za/add_client', {
             method: 'POST',
+            credentials: "include",
             body: formData // Sent natively as multipart/form-data
         });
 

@@ -37,6 +37,7 @@ function BusinessesForm() {
       //    if(!response.ok){
    const response = await fetch('https://backend.c-zwena.co.za/sign_up', {
             method: 'POST',
+            credentials: "include",
             body: formData // Sent natively as multipart/form-data
         });
 
