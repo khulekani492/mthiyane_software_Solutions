@@ -35,6 +35,17 @@ function  saveClient () {
 
    console.log("How does it feel to be you");
    const form = document.querySelector("form");
+   const busiess_name = document.getElementById("businessId");
+   const businessNameCache = sessionStorage.getItem("businessName");
+   console.log("before updating");
+   console.log(busiess_name);
+   console.log("after updating");
+   
+   if (  businessNameCache) { 
+      busiess_name.value = businessNameCache;
+      console.log("cache")
+      console.log(busiess_name)
+    }
 
    form.addEventListener('submit', async (event) => {
     // 1. Prevent the default browser form submission
@@ -48,7 +59,7 @@ function  saveClient () {
       //    if(!response.ok){
    const response = await fetch('https://backend.c-zwena.co.za/add_client', {
             method: 'POST',
-            credentials: "include",
+            
             body: formData // Sent natively as multipart/form-data
         });
 
