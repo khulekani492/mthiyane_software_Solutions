@@ -46,7 +46,7 @@ function  saveClient () {
     try {
         // 3. Send the POST request
       //    if(!response.ok){
-   const response = await fetch('https://backend.c-zwena.co.za//add_client', {
+   const response = await fetch('https://backend.c-zwena.co.za/add_client', {
             method: 'POST',
             body: formData // Sent natively as multipart/form-data
         });
