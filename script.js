@@ -26,6 +26,7 @@ function BusinessesForm() {
    const form = document.querySelector("form");
 
    form.addEventListener('submit', async (event) => {
+      
     // 1. Prevent the default browser form submission
    event.preventDefault();
 
@@ -37,7 +38,6 @@ function BusinessesForm() {
       //    if(!response.ok){
    const response = await fetch('https://backend.c-zwena.co.za/sign_up', {
             method: 'POST',
-            credentials: "include",
             body: formData // Sent natively as multipart/form-data
         });
 
