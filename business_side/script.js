@@ -33,19 +33,15 @@ navBar.addEventListener("click", () => {
 
 function  saveClient () {
 
-   console.log("How does it feel to be you");
+   
    const form = document.querySelector("form");
    const busiess_name = document.getElementById("businessId");
    const businessNameCache = sessionStorage.getItem("businessName");
-   console.log("before updating");
-   console.log(busiess_name);
-   console.log("after updating");
+   console.log(businessNameCache);
+console.log("How does it feel to be you");
+   busiess_name.value = businessNameCache;
+   console.log(busiess_name.value);
    
-   if (  businessNameCache) { 
-      busiess_name.value = businessNameCache;
-      console.log("cache")
-      console.log(busiess_name)
-    }
 
    form.addEventListener('submit', async (event) => {
     // 1. Prevent the default browser form submission
