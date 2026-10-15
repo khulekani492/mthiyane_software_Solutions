@@ -66,9 +66,7 @@ console.log("How does it feel to be you");
 
    const data = await response.json();
    console.log('Success:', data);
-   if(data.status == "OK"){
-      sessionStorage.setItem("businessName",data.businessName);
-    
+   if(data.status == "OK"){   
       window.location.href = "dashboard.html"
   
   
