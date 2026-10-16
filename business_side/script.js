@@ -6,12 +6,23 @@
       nameEl.textContent = businessName;
     }
   }
-    
-  const navlinks = document.querySelector(".nav_links");
-const navBar = document.querySelector(".hamburger");
-let menuOpen = false;
+  console.log("customer number id")
+  const n_customer = document.getElementById("n_customers");
+  
+  const new_value = sessionStorage.getItem("total_count");
 
-navBar.addEventListener("click", () => {
+  console.log(new_value + " cache customer count" );
+
+  n_customer.textContent = new_value ;
+  n_customer.style.fontSize = "50px";
+  n_customer.style.color = "orangered";
+
+  
+  const navlinks = document.querySelector(".nav_links");
+  const navBar = document.querySelector(".hamburger");
+  let menuOpen = false;
+
+  navBar.addEventListener("click", () => {
      if(menuOpen == false){
         console.log("script.js is working");
         navlinks.style.display = "none";
@@ -31,53 +42,8 @@ navBar.addEventListener("click", () => {
 });
 
 
-function  saveClient () {
 
-   
-   const form = document.querySelector("form");
-   const busiess_name = document.getElementById("businessId");
-   const businessNameCache = sessionStorage.getItem("businessName");
-   console.log(businessNameCache);
-console.log("How does it feel to be you");
-   busiess_name.value = businessNameCache;
-   console.log(busiess_name.value);
-   
 
-   form.addEventListener('submit', async (event) => {
-    // 1. Prevent the default browser form submission
-   event.preventDefault();
 
-    // 2. Gather form data automatically
-    const formData = new FormData(form );
 
-    try {
-        // 3. Send the POST request
-      //    if(!response.ok){
-   const response = await fetch('https://backend.c-zwena.co.za/add_client', {
-            method: 'POST',
-            
-            body: formData // Sent natively as multipart/form-data
-        });
 
-        // 4. Handle response
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-   const data = await response.json();
-   console.log('Success:', data);
-   if(data.status == "OK"){   
-      window.location.href = "dashboard.html"
-  
-  
-   }
-
-    } catch (error) {
-        console.error('Error submitting form:', error);
-    }
-  });
-   
-         
-}
-
-saveClient();
