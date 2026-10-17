@@ -43,7 +43,34 @@
 
 
 
+document.getElementById("searchClient").addEventListener('submit',async function(event){
+     event.preventDefault();
+    
+     const myform = document.getElementById("searchClient");
+     console.log(myform);
+     const sentForm = new FormData(myform);
 
+     const response = await fetch('https://backend.c-zwena.co.za/customer_records',
+      {
+        method:'Post',
+        body: sentForm
+      });
+
+   
+      if (!response.ok){
+        throw new Error(`HTTP error: ${response.status}`);
+            }
+
+      const data = await response.json();
+      
+      console.log('Success:', data);
+     
+      if(data.status == "OK"){
+         
+      }
+            
+    
+      });
 
 
 
