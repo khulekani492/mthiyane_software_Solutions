@@ -84,57 +84,55 @@
       cursor: default;
     }
 
-    /* Moved inline layout styles into classes for readability */
+    /* Customer details styling */
     .customer-info {
+      max-width: 650px;
+      margin: 20px auto;
+      padding: 0 16px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      font-size: 8px;
-      margin-left: 10%;
-      margin-top: 10%;
+      gap: 12px;
+    }
+
+    .customer-info h1 {
+      margin-bottom: 8px;
     }
 
     .customer-info p {
       font-size: 15px;
-      margin: 0;
+      margin: 2px 0 0 0;
     }
 
     .customer-info label {
       font-weight: 600;
+      font-size: 13px;
+      color: #57606a;
     }
 
-    .center-column {
+    /* Fixed receipt preview & month selection container */
+    .preview {
       display: flex;
-      flex-direction: column;
-      gap: 10px;
+      flex-direction: row;
       justify-content: center;
       align-items: center;
-      margin-top: 7%;
+      gap: 32px;
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid #e1e4e8;
     }
 
-    .month-select {
-      margin-left: 4%;
-    }
-
-    /* Updated receipt preview styles */
-    .receipt-preview {
+    .preview-box {
       display: flex;
-      justify-content: center;
-      flex-direction: column;
       align-items: center;
-      margin-bottom: 10px;
-      border: 2px solid rgb(149, 132, 126);
-      margin-top: 15%;
-      margin-left: 7%;
-      gap: 16px;
-      background-color: transparent;
-      padding: 16px;
+      justify-content: center;
+      border: 2px dashed orangered;
       border-radius: 8px;
+      padding: 6px;
     }
 
     .thumbnail {
-      width: 160px;
-      height: 200px;
+      width: 140px;
+      height: 180px;
       object-fit: contain;
       border-radius: 6px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.12);
@@ -147,11 +145,38 @@
       outline: 3px solid orangered;
     }
 
-    .preview-box {
+    .center-column {
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      gap: 8px;
       justify-content: center;
-      flex-direction: row;
+      align-items: flex-start;
+    }
+
+    .center-column h3 {
+      margin: 0 0 4px 0;
+      font-size: 16px;
+      color: #24292f;
+    }
+
+    .center-column label {
+      font-size: 13px;
+      color: #57606a;
+    }
+
+    .month-select {
+      padding: 8px 12px;
+      font-size: 14px;
+      border-radius: 6px;
+      border: 1px solid #d0d7de;
+      background-color: #fff;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .month-select:focus {
+      border-color: orangered;
+      box-shadow: 0 0 0 3px rgba(255, 69, 0, 0.2);
     }
 
     /* Modal / Lightbox */
@@ -230,16 +255,17 @@
       .contribution-card {
         padding: 16px;
       }
-      .customer-info {
-        margin-left: 5%;
-      }
-      .receipt-preview {
+      .preview {
         flex-direction: column;
-        margin-left: 5%;
+        gap: 16px;
+        align-items: center;
+      }
+      .center-column {
+        align-items: center;
       }
       .thumbnail {
-        width: 140px;
-        height: 180px;
+        width: 130px;
+        height: 160px;
       }
     }
   </style>
@@ -261,22 +287,30 @@
 
     <div>
       <label>Customer Name</label>
-      <p>Khulekani</p>
+      <p id="memo_c_name"></p>
     </div>
 
     <div>
       <label>Customer Surname</label>
-      <p>Zondo</p>
+      <p id="memo_c_surname"></p>
     </div>
 
     <div>
       <label>Customer ID_NO</label>
-      <p>0210155135085</p>
+      <p id="memo_id_no"></p>
     </div>
 
     <div>
       <label>Customer Amount</label>
-      <p>R800</p>
+      <p id="memo_c_amount" ></p>
+    </div>
+ 
+    <div>
+      <label>Customer WhatsApp</label>
+      <div style="display: flex; flex-direction: row; gap:10px; align-items: center;">
+        <img src="/cllient_side/WhatsApp_Logo_green.svg" height="20px" alt="WhatsApp" />
+        <p  id="memo_c_number"></p>
+      </div>
     </div>
   </div>
 
@@ -334,40 +368,38 @@
       </div>
     </div>
 
-    <div class="center-column">
-      <h3>To view Proof Payment</h3>
-      <label for="month-select">Choose a month:</label>
-      <select id="month-select" name="month" class="month-select">
-        <option value="">--Please choose an option--</option>
-        <option value="01">January</option>
-        <option value="02">February</option>
-        <option value="03">March</option>
-        <option value="04">April</option>
-        <option value="05">May</option>
-        <option value="06">June</option>
-        <option value="07">July</option>
-        <option value="08">August</option>
-        <option value="09">September</option>
-        <option value="10">October</option>
-        <option value="11">November</option>
-        <option value="12">December</option>
-      </select>
+    <!-- Receipt preview & month selector -->
+    <div class="preview">
+      <div class="preview-box">
+        <img
+          src="/business_side/c-zWenareceipt-template-row (Edited).png"
+          alt="Receipt Preview Template 1"
+          class="thumbnail"
+          tabindex="0"
+          data-filename="c-zWenareceipt"
+        />
+      </div>
+
+      <div class="center-column">
+        <h3>To view Proof Payment</h3>
+        <label for="month-select">Choose a month:</label>
+        <select id="month-select" name="month" class="month-select">
+          <option value="">--Please choose an option--</option>
+          <option value="01">January</option>
+          <option value="02">February</option>
+          <option value="03">March</option>
+          <option value="04">April</option>
+          <option value="05">May</option>
+          <option value="06">June</option>
+          <option value="07">July</option>
+          <option value="08">August</option>
+          <option value="09">September</option>
+          <option value="10">October</option>
+          <option value="11">November</option>
+          <option value="12">December</option>
+        </select>
+      </div>
     </div>
-  </div>
-
-  <!-- Improved receipt preview: thumbnails that open a modal for full view -->
-  <div class="preview" style="display: flex; flex-direction: row; justify-content: center; align-items: center; ">
-    <div class="preview-box" style=" border:orangered dashed;">
-      <img
-        src="/business_side/c-zWenareceipt-template-row (Edited).png"
-        alt="Receipt Preview Template 1"
-        class="thumbnail"
-        tabindex="0"
-        data-filename="c-zWenareceipt"
-      />
-    </div>
-
-
   </div>
 
   <!-- Modal / lightbox -->
@@ -382,18 +414,18 @@
           <button id="close-modal" class="btn secondary" aria-label="Close">Close</button>
         </div>
         <div style="display:flex; gap:8px; align-items:center;">
+          <button id="download-btn" class="btn">Download</button>
           <span id="modal-filename" style="font-size:14px; color:#333;"></span>
-      
         </div>
       </div>
     </div>
   </div>
-    <footer>
-    <div class="site-footer">
+
+  <footer>
+    <div class="site-footer" style="text-align: center; margin-top: 40px;">
       <p style="margin: 0; padding: 12px 0;">C-Zawena — Making Monthly Payments Simple.</p>
     </div>
   </footer>
-
 
   <script>
     (function () {
@@ -410,7 +442,6 @@
         modalFilename.textContent = filename || '';
         modal.classList.add('open');
         modal.setAttribute('aria-hidden', 'false');
-        // focus the close button for keyboard users
         closeBtn.focus();
       }
 
@@ -418,7 +449,6 @@
         modal.classList.remove('open');
         modal.setAttribute('aria-hidden', 'true');
         modalImg.src = '';
-        // return focus to the first thumbnail
         const firstThumb = document.querySelector('.thumbnail');
         if (firstThumb) firstThumb.focus();
       }
@@ -437,32 +467,29 @@
 
       closeBtn.addEventListener('click', closeModal);
 
-      // close modal on overlay click (outside content)
       modal.addEventListener('click', (e) => {
         if (e.target === modal) closeModal();
       });
 
-      // keyboard handling: Esc to close
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal.classList.contains('open')) {
           closeModal();
         }
       });
 
-      // Download the currently displayed image
-      downloadBtn.addEventListener('click', () => {
-        const src = modalImg.src;
-        if (!src) return;
-        // Create an anchor and trigger download
-        const a = document.createElement('a');
-        a.href = src;
-        // Use displayed filename if available, else fallback
-        const filename = modalFilename.textContent || 'receipt-image';
-        a.download = filename;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-      });
+      if (downloadBtn) {
+        downloadBtn.addEventListener('click', () => {
+          const src = modalImg.src;
+          if (!src) return;
+          const a = document.createElement('a');
+          a.href = src;
+          const filename = modalFilename.textContent || 'receipt-image';
+          a.download = filename;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        });
+      }
     })();
   </script>
 
