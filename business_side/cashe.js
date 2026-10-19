@@ -1,4 +1,5 @@
   function payment_history(){   
+
      const customer_name = document.getElementById("memo_c_name");
      const customer_surname = document.getElementById("memo_c_surname");
      const customer_number = document.getElementById("memo_c_number");
@@ -11,6 +12,5 @@
      customer_id.textContent = sessionStorage.getItem("cacheId");
      customer_amount.textContent = sessionStorage.getItem("cacheAmount"); 
   }
-
 
 payment_history();
