@@ -35,6 +35,7 @@ function saveClient () {
 
         // 4. Handle response
         if (!response.ok) {
+            
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
 
@@ -46,6 +47,9 @@ function saveClient () {
       window.location.href = "dashboard.html"
   
   
+   }else{
+    console.log("No User found");
+    console.log(data);
    }
 
     } catch (error) {

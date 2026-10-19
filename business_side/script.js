@@ -1,9 +1,11 @@
   console.log("dashboard live");
   const nameEl =   document.getElementById("bsName");
+    const nameElsub =   document.getElementById("bsName2");
   if (nameEl) {
     const businessName = sessionStorage.getItem("businessName");
   if (businessName) {
       nameEl.textContent = businessName;
+      nameElsub.textContent = businessName;
     }
   }
   console.log("customer number id")
@@ -44,12 +46,15 @@
 
 
 
+
 document.getElementById("searchClient").addEventListener('submit',async function(event){
      event.preventDefault();
     
      const myform = document.getElementById("searchClient");
      console.log(myform);
      const sentForm = new FormData(myform);
+     const customer_notFound = document.getElementById("no_customer");
+     
 
      const response = await fetch('https://backend.c-zwena.co.za/customer_records',
       {
@@ -59,11 +64,12 @@ document.getElementById("searchClient").addEventListener('submit',async function
 
    
       if (!response.ok){
+        customer_notFound.style.display = "block";
         throw new Error(`HTTP error: ${response.status}`);
             }
 
       const data = await response.json();
-      
+   
       console.log('Success:', data);
      
       
@@ -78,6 +84,7 @@ document.getElementById("searchClient").addEventListener('submit',async function
      const customer_details = document.getElementById("details_");
 
      if(data.status == "OK"){
+         customer_notFound.style.display = "none";
         customer_details.style.display = "block";
        customer_name.textContent =  data.customer_name;
         sessionStorage.setItem("cacheName",data.customer_name);
@@ -91,7 +98,10 @@ document.getElementById("searchClient").addEventListener('submit',async function
         sessionStorage.setItem("cacheId",data.id_NO);
         
   
-      }
+      }else{
+    console.log("No User found");
+    console.log(data);
+   }
             
     
       });
