@@ -43,7 +43,7 @@ function saveClient () {
    if(data.status == "OK"){   
       console.log(data.numberOfCUstomer)
       sessionStorage.setItem("total_count",data.numberOfCUstomer);
-       window.location.href = "dashboard.html"
+      window.location.href = "dashboard.html"
   
   
    }

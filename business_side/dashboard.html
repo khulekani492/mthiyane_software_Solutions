@@ -64,6 +64,7 @@
       align-items: center;
       flex-wrap: wrap;
     }
+    
   </style>
 </head>
 <body>
@@ -99,7 +100,7 @@
     <section class="clientSearch">
       <div id="div1">
         <h2>Business Dashboard</h2>
-        <p id="bsName" style="font-size: 1.3em; margin: 4px 0;">Business name</p> 
+        <p id="bsName" style="font-size: 1.3em; margin: 4px 0;"></p> 
         <div style="font-size: 1.2em;">
           <p style="margin: 0;">Number of Customers</p> 
         </div>
@@ -125,22 +126,31 @@
       </form>
     </section>
      
-    <div class="client_profile"  id="details_" style="display: none;">
-      <h3>Customer Information and Details</h3>   
-      <label>Customer Name</label>
-      <p id="customerName"> </p>
-      <label>Customer Surname</label>
-      <p id="customerSurname"> </p>
-      <label>Customer Number</label>
-      <p id="customerNumber"> </p>
-      <label>Customer ID NO.</label>
-      <p id="customerID"> </p>
-      <label>Customer Amount</label>
-      <p id="customerAmount"> </p>
-      <p style="margin: 0; font-size: 1rem;">
-         Click <a href="paymentHistory.html" style="color: #DF301C; font-weight: bold; text-decoration: underline;">view</a> to see Payment history.</p>
-    </div>
+  <div class="client_profile" id="details_" style="display: none; margin-left: 3%;">
+  <!-- Updated to h2: bolder, explicit font-size, and pure black color -->
+  <h2 style="font-size: 28px; font-weight: 800; color: #000000; margin-bottom: 1rem; text-decoration: underline solid 2px;">
+    Customer Information and Details
+  </h2>   
 
+  <label>Customer Name</label>
+  <p style="font-size: 25px; font-style: normal;" id="customerName"></p>
+
+  <label>Customer Surname</label>
+  <p style="font-size: 25px; font-style: normal;" id="customerSurname"></p>
+
+  <label>Customer Number</label>
+  <p style="font-size: 25px; font-style: normal;" id="customerNumber"></p>
+
+  <label>Customer ID NO.</label>
+  <p style="font-size: 25px; font-style: normal;" id="customerID"></p>
+
+  <label>Customer Amount</label>
+  <p style="font-size: 25px; font-style: normal;" id="customerAmount"></p>
+
+  <p style="margin: 0; font-size: 1rem;">
+    Click <a href="paymentHistory.html" style="color: #DF301C; font-weight: bold; text-decoration: underline;">view</a> to see Payment history.
+  </p>
+</div>
     <section style="padding: 10px 0;">
       <h3>PROOF OF PAYMENT</h3>
       <p style="font-weight: 500;">Free Digital Receipt Book</p>
@@ -176,8 +186,8 @@
         <p>In order to keep sending receipts to your customers, you need to have a Digital Receipt Book on your dashboard.</p>
         <p><strong style="color: #DF301C;">A FREE DIGITAL RECEIPT BOOK</strong><br>for new users is available after registration.</p>
         <p>We offer affordable Digital Receipt Books starting from R20.</p>
-        <p>Click below to view pricing:</p>
-        <a href="digitalBook.html" class="badge-btn" style="background-color: #00B7CD; color: #ffffff;">DIGITAL RECEIPT BOOK</a>
+          <p style="margin: 0; font-size: 1rem;">Click <a  href="digitalBook.html" style="color: #00B7CD; font-weight: bold; text-decoration: underline;">view</a> to see DIGITAL RECEIPT BOOK pricing</p>
+        <!-- <a href="digitalBook.html" class="badge-btn" style="background-color: #00B7CD; color: #ffffff;"></a> -->
       </div>
     </section>
 

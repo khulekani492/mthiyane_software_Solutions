@@ -41,8 +41,7 @@
      
 });
 
- const customer_details = document.getElementById("details_");
-     customer_details.style.display = "none";
+
 
 
 document.getElementById("searchClient").addEventListener('submit',async function(event){

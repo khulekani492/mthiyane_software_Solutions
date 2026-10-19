@@ -31,16 +31,15 @@
       max-width: 520px;
       width: 100%;
       box-sizing: border-box;
-      /* ensure arrows sit toward bottom when card is tall */
       min-height: 520px;
     }
 
-    /* Distinct top header for the page title */
+    /* Top header for page title */
     .booklet-header {
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 8px;
       text-align: center;
       padding-bottom: 12px;
       border-bottom: 2px solid #d50909;
@@ -62,17 +61,16 @@
       letter-spacing: 1px;
     }
 
-    /* Image stage - centered */
+    /* Image stage */
     .image-stage {
       display: flex;
       justify-content: center;
       align-items: center;
       width: 100%;
-      flex: 1 1 auto; /* let it grow so controls are pushed down */
+      flex: 1 1 auto;
       padding: 12px 0;
     }
 
-    /* Receipt image wrapper */
     .booklet-image-wrap {
       display: flex;
       flex-direction: row;
@@ -82,6 +80,9 @@
       background: #fafafa;
       border: 1px dashed #cccccc;
       border-radius: 8px;
+      max-width: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
     }
 
     .booklet-image-wrap img {
@@ -97,10 +98,10 @@
       transform: scale(1.02);
     }
 
-    /* Eye view action button */
+    /* Base button styles */
     .eye-view-btn {
       background-color: orangered;
-      color: #000000;
+      color: #ffffff;
       border: none;
       padding: 12px 28px;
       font-size: 15px;
@@ -110,10 +111,13 @@
       border-radius: 6px;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
       text-decoration: none;
       transition: all 0.2s ease;
       box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      box-sizing: border-box;
+      min-height: 44px;
     }
 
     .eye-view-btn:hover {
@@ -122,8 +126,44 @@
       box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
     }
 
-    /* Controls row (arrows) at the bottom */
-   
+    /* Navigation control row and buttons */
+    .controls-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      width: 100%;
+      margin-top: auto;
+    }
+
+    .nav-arrow-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid #dcdcdc;
+      background-color: #ffffff;
+      color: #303841;
+      font-size: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    }
+
+    .nav-arrow-btn:hover:not(:disabled) {
+      background-color: #00B7CD;
+      color: #ffffff;
+      border-color: #00B7CD;
+      transform: translateY(-1px);
+    }
+
+    .nav-arrow-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
 
     /* Modal / Lightbox */
     .modal-overlay {
@@ -133,11 +173,11 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.85);
+      background: rgba(0, 0, 0, 0.75);
       z-index: 9999;
       justify-content: center;
       align-items: center;
-      padding: 20px;
+      padding: 16px;
       box-sizing: border-box;
     }
 
@@ -159,7 +199,7 @@
       right: 16px;
       font-size: 32px;
       font-weight: bold;
-      color: #303841;
+      color: #0e63c4;
       cursor: pointer;
       line-height: 1;
     }
@@ -171,18 +211,45 @@
       margin-top: 14px;
     }
 
-    /* Responsive tweaks */
-    @media (max-width: 420px) {
+    /* Mobile Responsive Rules */
+    @media (max-width: 480px) {
+      .viewer-container {
+        padding: 24px 12px;
+      }
+
+      .booklet-card {
+        padding: 20px 16px;
+        min-height: auto;
+      }
+
+      .booklet-image-wrap {
+        flex-direction: column;
+        gap: 12px;
+      }
+
       .booklet-image-wrap img {
         height: 180px;
         width: 140px;
       }
-      .nav-arrow-btn {
-        width: 48px;
-        height: 48px;
+
+      /* Make "View Full Page" button full-width with a comfortable mobile tap target */
+      .eye-view-btn {
+        width: 100%;
+        padding: 14px 20px;
+        font-size: 16px;
       }
-      .booklet-card {
-        padding: 20px;
+
+      /* Distribute prev/next buttons across bottom for thumb reach */
+      .controls-row {
+        justify-content: space-between;
+        padding: 0 12px;
+        box-sizing: border-box;
+      }
+
+      .nav-arrow-btn {
+        width: 52px;
+        height: 52px;
+        font-size: 20px;
       }
     }
   </style>
@@ -217,33 +284,30 @@
   <main class="viewer-container">
     <div class="booklet-card">
 
-      <!-- Header: Separated Title & Subtitle with spacing -->
       <div class="booklet-header">
-        <pclass="page-title"  >Digital Cash Receipt Book</p>
-        <h2 id="pageLabel"  class="page-subtitle"         >  1 of 30       </h2>
-        
+        <p class="page-title">Digital Cash Receipt Book</p>
+        <h2 id="pageLabel" class="page-subtitle">1 of 30</h2>
       </div>
 
-      <!-- Image stage (centered and allowed to grow) -->
       <div class="image-stage">
         <div class="booklet-image-wrap">
-            <img src="c-zawena_digitalBook.png" width="200px"/>
-          <img id="receiptImage" src="c-zWenareceipt-template-row (Edited).png" alt="c-zWena receipt template" onclick="openModal()" />
+          <img src="c-zawena_digitalBook.png" alt="Digital Book Preview" />
+          <img id="receiptImage" src="c-zWenareceipt-template-row (Edited).png" alt="Receipt Template" onclick="openModal()" />
         </div>
       </div>
 
       <!-- Dedicated View Action -->
-      <button class="eye-view-btn" onclick="openModal()">
-        <i class="fa fa-eye"></i> View Full Page
+      <button class="eye-view-btn" onclick="openModal()" aria-label="View Full Page">
+        <i class="fa fa-eye" aria-hidden="true"></i> View Full Page
       </button>
 
       <!-- Controls row at the bottom with arrows -->
-      <div class="controls-row" aria-hidden="false">
-        <button id="prevBtn" class="nav-arrow-btn" onclick="prevPage()" title="Previous Page">
+      <div class="controls-row" aria-label="Page Navigation">
+        <button id="prevBtn" class="nav-arrow-btn" onclick="prevPage()" title="Previous Page" aria-label="Previous Page">
           <i class="fa fa-chevron-left" aria-hidden="true"></i>
         </button>
 
-        <button id="nextBtn" class="nav-arrow-btn" onclick="nextPage()" title="Next Page">
+        <button id="nextBtn" class="nav-arrow-btn" onclick="nextPage()" title="Next Page" aria-label="Next Page">
           <i class="fa fa-chevron-right" aria-hidden="true"></i>
         </button>
       </div>
@@ -255,8 +319,8 @@
   <div id="imageModal" class="modal-overlay" onclick="closeModalOnOutside(event)">
     <div class="modal-box">
       <span class="modal-close" onclick="closeModal()">&times;</span>
-      <h3 id="modalPageTitle" style="margin: 0; color: #DF301C;"> Page 1 of 30</h3>
-      <img src="c-zWenareceipt-template-row (Edited).png" alt="c-zWena full receipt preview" />
+      <h3 id="modalPageTitle" style="margin: 0; color: #1fcee9;">Page 1 of 30</h3>
+      <img src="c-zWenareceipt-template-row (Edited).png" alt="Full receipt preview" />
     </div>
   </div>
 
@@ -307,14 +371,12 @@
       }
     }
 
-    // Keyboard navigation (Left & Right arrows)
     document.addEventListener('keydown', function(e) {
       if (e.key === 'ArrowLeft') prevPage();
       if (e.key === 'ArrowRight') nextPage();
       if (e.key === 'Escape') closeModal();
     });
 
-    // Initialize display state
     updatePage();
   </script>
 </body>
