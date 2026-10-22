@@ -44,7 +44,23 @@ function saveClient () {
    if(data.status == "OK"){   
       console.log(data.numberOfCUstomer)
       sessionStorage.setItem("total_count",data.numberOfCUstomer);
-      window.location.href = "dashboard.html"
+      //window.location.href = "dashboard.html";
+      const url = new URL('https://c-zawena.khulekaniszondo6.workers.dev/cllient_side/form');
+
+       // 2. Set/Update a parameter
+       url.searchParams.set('user_id', data.userId);
+       url.searchParams.set('amount', data.amount); // Appends if it doesn't exist
+
+       const unique_link = document.getElementById("customer_link");
+
+       unique_link.value = url.toString();
+       
+       
+       
+
+
+      
+
   
   
    }else{
