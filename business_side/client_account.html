@@ -35,18 +35,10 @@
 
     <main class="main-content">
       <div class="client_form">
-        <p>Register your client on <em style="color: #DF301C; font-size: 20px;">C-Zawena</em></p>
+        <p>Register your Customer on <em style="color: #DF301C; font-size: 20px;">C-Zawena</em></p>
 
         <form id="myform" class="client-form" >
-          <label for="clientName">Enter Client Name</label>
-          <input id="clientName" type="text" name="client_name" required>
-
-
-          <label for="client_surname">Enter Client Surname</label>
-          <input id="client_surname" type="text" name="client_surname" required>
-
-          <label for="id_NO">Enter ID Number</label>
-          <input id="id_NO" type="text" name="id_number" required>
+        
 
           <label for="phone-number">WhatsApp Phone Number</label>
           <input id="phone-number" type="texl" name="phone_number" required>
@@ -54,10 +46,15 @@
           <label for="client-amount">Enter Client Amount</label>
           <input id="client-amount" type="number" step="any" name="client_amount" placeholder="e.g. 200" required>
            <input  type="hidden"  id="businessId"  name="businessId"  type="text" value="business_name">
-
-          <button type="submit" class="btn-submit">Create Client</button>
+           
+           
+          <button type="submit" class="btn-submit">Generate a link</button>
+          <label for="client-amount">Share link to Customer</label>
+           <input placeholder="customer URL" />
         </form>
+        
       </div>
+     
     </main>
 
     <footer class="site-footer">

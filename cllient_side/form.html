@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>remote-customer-form</title>
+    <link href="style.css" rel="stylesheet">
+    <style>
+      /* Ensure the page takes full height */
+      html, body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+      }
+
+      /* Wrapper to center everything below the navbar */
+      .center-wrapper {
+        min-height: 80vh; /* Adjust based on navbar height */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      /* Ensures form fields stretch nicely and remain centered */
+      .client-form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 400px;
+      }
+    </style>
+</head>
+<body>
+    <nav>
+        <div id="logoImg">
+            <img src="/klogo.png" alt="logo" class="logo">
+        </div>
+
+        <div class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </nav>
+    
+    <ul class="nav_links">
+        <li class="nav_bar"><a href="index.html">Home</a></li>
+        <li class="nav_bar"><a href="more.html">about</a></li>
+        <li class="nav_bar"><a href="/business_side/login.html" style="background-color: #00B7CD; color: #FCE59A; font-weight: bold;">LOGIN</a></li>
+        <li class="nav_bar"><a href="/business_side/account.html">Get Started</a></li>
+        <li class="nav_bar"><a href="/cllient_side/payment.html" style="color: #DF301C;">payment page</a></li>
+        <li class="nav_bar"><a href="/cllient_side/login.html" style="color: #DF301C;">client_login</a></li>
+        <li class="nav_bar"><a href="/business_side/dashboard.html" style="color: #DF301C;">dashboard</a></li>
+    </ul> 
+
+    <!-- Centered Content Wrapper -->
+    <main class="center-wrapper">
+        <p>Business A has invited you to Register on <em style="color: #DF301C; font-size: 20px;">C-Zawena</em></p>
+        <div style="text-align: center; margin-bottom: 24px;">
+            
+            <p>To start paying businesses using cash Vouchers</p>
+            <div style="text-align: left; display: inline-block;">
+                <p>✓ No long queues</p>
+                <p>✓ Less transport costs</p>
+                <p>✓ Pay directly from your phone</p>
+                <p>✓ Instant digital proof of payment</p>
+            </div>
+        </div>
+   
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <form id="myform" class="client-form">
+            <label for="clientName">Enter Name</label>
+            <input id="clientName" type="text" name="client_name" required>
+
+            <label for="client_surname">Enter Surname</label>
+            <input id="client_surname" type="text" name="client_surname" required>
+
+            <label for="id_NO">Enter ID Number</label>
+            <input id="id_NO" type="text" name="id_number" required>
+
+            <label for="phone-number">WhatsApp Phone Number</label>
+            <!-- Fixed typo from type="texl" to type="tel" -->
+            <input id="phone-number" type="tel" name="phone_number" required>
+
+            <label for="client-amount">Enter Client Amount</label>
+            <input id="client-amount" type="number" step="any" name="client_amount" placeholder="e.g. 200" required>
+            <input type="hidden" id="businessId" name="businessId" value="business_name">
+
+            <button type="submit" class="btn-submit" style="margin-top: 15px; " >CREATE</button>
+        </form>
+        </div>
+        
+      
+
+    </main>
+
+  <footer>
+    <div class="site-footer">
+      <p style="margin: 0; padding: 12px 0;">C-Zawena — Making Monthly Payments Simple.</p>
+    </div>
+  </footer>
+
+
+    <script src="/script.js"></script>
+</body>
+</html>
