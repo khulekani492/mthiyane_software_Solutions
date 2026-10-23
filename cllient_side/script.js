@@ -1,4 +1,4 @@
-
+   const url = new URL('https://c-zawena.khulekaniszondo6.workers.dev/cllient_side/form');
 
   console.log(url.searchParams.get('user_id')  );
 function saveClient () {
@@ -6,7 +6,7 @@ function saveClient () {
    
    const form = document.querySelector("form");
    
-      const url = new URL('https://c-zawena.khulekaniszondo6.workers.dev/cllient_side/form');
+   
 
        // 2. Set/Update a parameter
       
