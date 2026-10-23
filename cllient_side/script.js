@@ -1,12 +1,16 @@
+
+
+  console.log(url.searchParams.get('user_id')  );
 function saveClient () {
 
    
    const form = document.querySelector("form");
    
-   
+      const url = new URL('https://c-zawena.khulekaniszondo6.workers.dev/cllient_side/form');
 
-   console.log("How does it feel to be you");
-  //  busiess_name.value = businessNameCache;   
+       // 2. Set/Update a parameter
+      
+     
    
 
    form.addEventListener('submit', async (event) => {
