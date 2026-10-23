@@ -7,18 +7,20 @@ const urlParams = new URLSearchParams(queryString);
 const userId = urlParams.get('user_id');
 const amount = urlParams.get('amount');
 
+ const customer_amount = document.getElementById("client-amount");
+
+ customer_amount.value = amount;
 function saveClient () {
    console.log("This is inside the function")
    console.log(amount);
+
+   const business_primaryKey = document.getElementById("businessId");
+   
+   business_primaryKey.value = userId;
+
    const form = document.querySelector("form");
    
-   
-
        // 2. Set/Update a parameter
-      
-     
-   
-
    form.addEventListener('submit', async (event) => {
     // 1. Prevent the default browser form submission
    event.preventDefault();
