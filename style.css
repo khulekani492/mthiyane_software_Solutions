@@ -178,9 +178,14 @@ margin-left: 0%;
 .clientAccount #actions {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    
     padding: 20px;
+}
+
+.clientAccount .btn{
+    border: 2px solid greenyellow;
+    align-items: start;
+
 }
 
 .welcomeMsg {

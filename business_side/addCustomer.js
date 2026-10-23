@@ -73,7 +73,7 @@ function saveClient () {
     }
   });
    
-         
+
 }
  function copyInputValue() {
             // Get the input element by its ID
@@ -81,16 +81,19 @@ function saveClient () {
             
             // Get the value from the input field
             const textToCopy = inputElement.value;
-
-            // Use the Clipboard API to copy the text
-            navigator.clipboard.writeText(textToCopy)
+            if(textToCopy){
+                   navigator.clipboard.writeText(textToCopy)
                 .then(() => {
                     alert("Copied to clipboard: " + textToCopy);
                 })
                 .catch(err => {
                     console.error("Failed to copy text: ", err);
                 });
+            }
+
+            // Use the Clipboard API to copy the text
+         
         }
 
 saveClient();
-copyInputValue();
+copyInputValue(); 
