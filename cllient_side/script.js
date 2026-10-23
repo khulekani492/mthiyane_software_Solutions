@@ -6,11 +6,10 @@ const urlParams = new URLSearchParams(queryString);
 // 3. Fetch specific values using .get()
 const userId = urlParams.get('user_id');
 const amount = urlParams.get('amount');
-console.log(userId);
 
 function saveClient () {
-
-   
+   console.log("This is inside the function")
+   console.log(amount);
    const form = document.querySelector("form");
    
    
