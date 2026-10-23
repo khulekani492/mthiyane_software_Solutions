@@ -75,5 +75,22 @@ function saveClient () {
    
          
 }
+ function copyInputValue() {
+            // Get the input element by its ID
+            const inputElement = document.getElementById("customer_link");
+            
+            // Get the value from the input field
+            const textToCopy = inputElement.value;
+
+            // Use the Clipboard API to copy the text
+            navigator.clipboard.writeText(textToCopy)
+                .then(() => {
+                    alert("Copied to clipboard: " + textToCopy);
+                })
+                .catch(err => {
+                    console.error("Failed to copy text: ", err);
+                });
+        }
 
 saveClient();
+copyInputValue();
