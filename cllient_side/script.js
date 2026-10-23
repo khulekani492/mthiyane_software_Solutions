@@ -1,6 +1,13 @@
-   const url = new URL('https://c-zawena.khulekaniszondo6.workers.dev/cllient_side/form');
+const queryString = window.location.search;
 
-  console.log(url.searchParams.get('user_id')  );
+// 2. Parse the parameters
+const urlParams = new URLSearchParams(queryString);
+
+// 3. Fetch specific values using .get()
+const userId = urlParams.get('user_id');
+const amount = urlParams.get('amount');
+console.log(userId);
+
 function saveClient () {
 
    
