@@ -23,7 +23,6 @@
       background-color: RoyalBlue;
     }
 
-    /* Page-specific inline helper classes */
     .dashboard-container {
       border: 1px solid #e0e0e0;
       padding: 24px;
@@ -31,6 +30,7 @@
       margin: 20px auto;
       border-radius: 8px;
     }
+
     .badge-card {
       color: #000;
       padding: 20px;
@@ -41,6 +41,7 @@
       gap: 12px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
+
     .badge-btn {
       display: inline-block;
       padding: 10px 18px;
@@ -51,6 +52,7 @@
       width: fit-content;
       cursor: pointer;
     }
+
     .search-section {
       display: flex;
       flex-direction: column;
@@ -58,17 +60,63 @@
       justify-content: center;
       margin: 30px 0;
     }
+
     .search-form-row {
       display: flex;
       gap: 8px;
       align-items: center;
       flex-wrap: wrap;
     }
-    
+
+    .action-row {
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .btn,
+    #toggleReceiptBook {
+      display: inline-block;
+      min-width: 180px;
+      width: auto;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 768px) {
+      .action-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn,
+      #toggleReceiptBook {
+        width: 100% !important;
+        display: block;
+        white-space: normal;
+        text-align: center;
+        min-width: 0;
+      }
+
+      .search-form-row {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      #client-search {
+        width: 100%;
+      }
+
+      .search-form-row button {
+        width: 100% !important;
+      }
+    }
   </style>
 </head>
 <body>
-  
+
   <nav>
     <div id="logoImg">
       <img src="/klogo.png" alt="logo" class="logo">
@@ -92,110 +140,108 @@
     <li class="nav_bar"><a href="/business_side/dashboard.html" style="color: #DF301C;">Dashboard</a></li>
   </ul>
 
+  <div class="welcomeMsg">
+    <h2>Welcome to <em style="color: #DF301C; font-style: normal;">C-Zawena</em></h2>
+    <div style="background-color: #FF9100; display: flex; justify-content: flex-start; align-items: flex-start; margin-top: 10px;">
+      <h2 style="color:#FFF1D1;">C-zWena Dashboard</h2>
+    </div>
+  </div>
+
   <main class="dashboard dashboard-container">
-    <div class="welcomeMsg">
-      <h2>Welcome to <em style="color: #DF301C; font-style: normal;">C-Zawena</em></h2>
+    <div id="div1" style="margin-top: 18px;">
+      <p style="font-size: 1.2em; margin: 0;">Business Name</p>
+      <p id="bsName" style="font-size: 1.3em; margin: 4px 0;"></p>
+
+      <div style="font-size: 1.2em; margin-top: 16px;">
+        <p style="margin: 0;">Number of Customers</p>
+      </div>
+      <div id="n_customers" style="display: flex; gap: 70px; margin-top: 8px;">
+        <span>0</span>
+      </div>
+
+      <div style="font-size: 1.2em; margin-top: 16px;">
+        <p style="margin: 0;">pending Customers</p>
+      </div>
+      <div id="pending_customers" style="display: flex; gap: 70px; margin-top: 8px;">
+        <span>0</span>
+      </div>
+
+      <div class="action-row">
+        <a href="client_account.html" class="btn" style="background-color: #DF301C; color: #FFF1D1; width: fit-content;">Add New Customer</a>
+
+        <button id="toggleReceiptBook" type="button" style="background-color: #00B7CD; color: #FFF1D1; width: fit-content; padding: 12px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 1rem; font-weight: 600;">
+          View Receipt Book
+        </button>
+      </div>
     </div>
 
-    <section class="clientSearch">
-      <div id="div1">
-        <h2>Business Dashboard</h2>
-        <p id="bsName" style="font-size: 1.3em; margin: 4px 0;"></p> 
-        <div style="font-size: 1.2em;">
-          <p style="margin: 0;">Number of Customers</p> 
+    <p style="font-weight: 500; margin-top: 24px;">
+      <em style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: #00B7CD; font-size: large;"> Free ! </em>Digital Receipt Book To Get started with c-zawena.
+    </p>
+
+    <section id="receiptBadgeSection" class="clientSearch" style="display: none; margin-top: 22px;">
+      <div class="badge-card">
+        <h2>Available pages</h2>
+        <div style="font-size: 1.1em; display: flex; align-items: center; gap: 16px;">
+          <span style="color: #000; padding: 2px 8px; background-color: #00B7CD; font-weight: bold; border-radius: 3px;">30 pages</span>
+          <span style="color: #DF301C; font-weight: bold;">FOR FREE!</span>
         </div>
-        <div id="n_customers" style="display: flex; gap: 70px;">
-          <span>0</span>
-        </div> 
-        <a href="client_account.html" class="btn" style="background-color: #DF301C; color: #FFF1D1; width: fit-content;">Add New Customer</a>
+        <div style="display: flex; flex-direction: row; gap: 20px;">
+          <img src="free_ trial.png" alt="Receipt Preview Template" style="height: 200px; width: 160px; object-fit: contain;">
+          <div></div>
+        </div>
+        <h3>PROOF OF PAYMENT</h3>
+        <p>After customer payment<br> a receipt page is sent via Whatsapp</p>
+        <img src="/cllient_side/WhatsApp_Logo_green.svg" alt="WhatsApp logo" height="50">
+        <p style="margin: 0; font-size: 1rem;">
+          Click <a href="receiptPages.html" style="color: #DF301C; font-weight: bold; text-decoration: underline;">send</a> to receive a receipt on your whatsapp.
+        </p>
       </div>
     </section>
 
     <section class="search-section">
-      <form  id="searchClient" style="align-items: center;">
+      <form id="searchClient" style="align-items: center;">
         <p style="color: #00B7CD; font-size: 1.1em; font-weight: 600; margin-bottom: 6px;">To view Customer payment history</p>
-        
+
         <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
           <label for="client-search" style="font-size: 1.1em;">Search Customer</label>
           <i class="fa fa-search-plus" style="font-size: 20px; color: #DF301C;" aria-hidden="true"></i>
         </div>
+
         <div class="search-form-row">
           <input id="client-search" type="text" name="search" placeholder="Enter ID Number">
           <button style="background-color: orangered; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-size: 1rem; width: 99%;" type="submit">Search</button>
         </div>
       </form>
     </section>
-     
-    <p id="no_customer"  style="text-align: center; display: none; font-size: 16px;">No Customer found</p>
-  <div class="client_profile" id="details_" style="display: none; margin-left: 3%;">
-  <!-- Updated to h2: bolder, explicit font-size, and pure black color -->
-  <h2 style="font-size: 20px;  color: #000000; margin-bottom: 1rem; ">
-    Customer Information and Details
-  </h2>   
 
-  <label>Customer Name</label>
-  <p style="font-size: 20px; font-style: normal;" id="customerName"></p>
+    <p id="no_customer" style="text-align: center; display: none; font-size: 16px;">No Customer found</p>
+    <div class="client_profile" id="details_" style="display: none; margin-left: 3%;">
+      <h2 style="font-size: 20px; color: #000000; margin-bottom: 1rem;">
+        Customer Information and Details
+      </h2>
 
-  <label>Customer Surname</label>
-  <p style="font-size: 20px; font-style: normal;" id="customerSurname"></p>
+      <label>Customer Name</label>
+      <p style="font-size: 20px; font-style: normal;" id="customerName"></p>
 
-  <label>Customer Number</label>
-  <p style="font-size: 20px; font-style: normal;" id="customerNumber"></p>
+      <label>Customer Surname</label>
+      <p style="font-size: 20px; font-style: normal;" id="customerSurname"></p>
 
-  <label>Customer ID NO.</label>
-  <p style="font-size: 20px; font-style: normal;" id="customerID"></p>
+      <label>Customer Number</label>
+      <p style="font-size: 20px; font-style: normal;" id="customerNumber"></p>
 
-  <label>Customer Amount</label>
-  <p style="font-size: 20px; font-style: normal;" id="customerAmount"></p>
+      <label>Customer ID NO.</label>
+      <p style="font-size: 20px; font-style: normal;" id="customerID"></p>
 
-  <p style="margin: 0; font-size: 1rem;">
-    Click <a href="paymentHistory.html" style="color: #DF301C; font-weight: bold; text-decoration: underline;">view</a> to see Payment history.
-  </p>
-</div>
-    <section style="padding: 10px 0;">
-      <h3>PROOF OF PAYMENT</h3>
-      <p style="font-weight: 500;">Free Digital Receipt Book</p>
-       <p> After customer payment<br> a receipt page is sent via Whatsapp</p>
-        <img src="/cllient_side/WhatsApp_Logo_green.svg" alt="WhatsApp logo" height="50">
-      
+      <label>Customer Amount</label>
+      <p style="font-size: 20px; font-style: normal;" id="customerAmount"></p>
 
-      <div class="badge-card">
-       
-       <h2>Available pages for</h2>
-        <p id="bsName2" style="font-size: 1.3em; margin: 4px 0;"></p> 
-        <div style="font-size: 1.1em; display: flex; align-items: center; gap: 16px; ">
-          <span style="color: #000; padding: 2px 8px; background-color: #00B7CD; font-weight: bold; border-radius: 3px;">30 pages</span>
-          <span style="color: #DF301C; font-weight: bold;">FOR FREE!</span>
-        </div>
-        <div style="display: flex; flex-direction: row; gap: 20px;">
-           <img src="free_ trial.png" alt="Receipt Preview Template" style="height: 200px; width: 160px; object-fit: contain;">
-          <div>
-          
-    
-          </div>
-          
+      <p style="margin: 0; font-size: 1rem;">
+        Click <a href="paymentHistory.html" style="color: #DF301C; font-weight: bold; text-decoration: underline;">view</a> to see Payment history.
+      </p>
+    </div>
 
-        </div>
-       
-        <p style="margin: 0; font-size: 1rem;">
-  Click <a href="receiptPages.html" style="color: #DF301C; font-weight: bold; text-decoration: underline;">view</a> to see all pages.
-</p>
-        
-      </div>
-
-      <div style="margin-top: 28px;">
-        <h2>To GET STARTED</h2>
-        <p>We OFFER A FREE Digital Receipt Book for your First Customers.</p>
-        <p>For each payment, your customers will receive a Digital Receipt via WhatsApp.</p>
-        <p>In order to keep sending receipts to your customers, you need to have a Digital Receipt Book on your dashboard.</p>
-        <p><strong style="color: #DF301C;">A FREE DIGITAL RECEIPT BOOK</strong><br>for new users is available after registration.</p>
-        <p>We offer affordable Digital Receipt Books starting from R20.</p>
-          <p style="margin: 0; font-size: 1rem;">Click <a  href="digitalBook.html" style="color: #00B7CD; font-weight: bold; text-decoration: underline;">view</a> to see DIGITAL RECEIPT BOOK pricing</p>
-        <!-- <a href="digitalBook.html" class="badge-btn" style="background-color: #00B7CD; color: #ffffff;"></a> -->
-      </div>
-    </section>
-
-    </section>
+    <section style="padding: 10px 0;"></section>
   </main>
 
   <footer>
@@ -203,6 +249,27 @@
       <p style="margin: 0; padding: 12px 0;">C-Zawena — Making Monthly Payments Simple.</p>
     </div>
   </footer>
+
+  <script>
+    const toggleBtn = document.getElementById("toggleReceiptBook");
+    const receiptBadgeSection = document.getElementById("receiptBadgeSection");
+
+    toggleBtn.addEventListener("click", function () {
+      const isHidden = receiptBadgeSection.style.display === "none";
+
+      receiptBadgeSection.style.display = isHidden ? "block" : "none";
+      this.textContent = isHidden ? "Hide Receipt Book" : "View Receipt Book";
+
+      if (isHidden) {
+        setTimeout(() => {
+          receiptBadgeSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        }, 50);
+      }
+    });
+  </script>
 
   <script src="script.js"></script>
 </body>
