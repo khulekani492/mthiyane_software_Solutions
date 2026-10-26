@@ -49,10 +49,26 @@
            
            
           <button type="submit" class="btn-submit">Generate a link</button>
-          <label for="customer_link">Share link to Customer</label>
+          <label for="customer_link">Share link to Customer to fill out the form and consent to<br>receiving:</label>
+           <p>✓Monthly payment reminders sent on Whatsapp.</p>
+           <p>✓ Instant digital proof of payment sent on Whatsapp.</p>
            <input id="customer_link" placeholder="customer URL"  /> 
            <div>
-           <button  style="padding: 10PX;"   onclick="copyInputValue()">Copy URL</button> 
+           <button  style="padding: 10PX; background-color: #DF301C; color: #FFF1D1; border-radius: 10%;"   onclick="copyInputValue()">Copy</button> 
+           <div style="display: flex; flex-direction: row; justify-content: space-between; margin-top: 4%;">
+            <p>Click send to share the link  to the customer vai Whatapp.</p>
+            <img src="/cllient_side/WhatsApp_Logo_green.svg" height="30px" />
+           </div> 
+           
+           <div style="display: flex; flex-direction: column; ">
+          
+            <button  style="padding: 10PX;background-color: #89A482; color: #FFF1D1; font-family: 'Courier New', Courier, monospace; font-size: large; padding: 10px;"   onclick="copyInputValue()">Send</button> 
+            
+              </div>
+             
+             
+         
+           
            </div>
            
         </form>

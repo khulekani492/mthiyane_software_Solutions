@@ -141,10 +141,13 @@
   </ul>
 
   <div class="welcomeMsg">
-    <h2>Welcome to <em style="color: #DF301C; font-style: normal;">C-Zawena</em></h2>
-    <div style="background-color: #FF9100; display: flex; justify-content: flex-start; align-items: flex-start; margin-top: 10px;">
-      <h2 style="color:#FFF1D1;">C-zWena Dashboard</h2>
-    </div>
+   <div style="display: flex; align-items: center; width: 100%; margin-top: 10px; gap: 20px;">
+  
+
+  <div style="background-color: #FF9100; flex: 1; padding: 10px; margin-left: auto; padding: 20px;">
+    <h2 style="color:#FFF1D1; margin: 0;">C-zWena Dashboard</h2>
+  </div>
+</div>
   </div>
 
   <main class="dashboard dashboard-container">
@@ -198,15 +201,16 @@
         </p>
       </div>
     </section>
-
-    <section class="search-section">
-      <form id="searchClient" style="align-items: center;">
-        <p style="color: #00B7CD; font-size: 1.1em; font-weight: 600; margin-bottom: 6px;">To view Customer payment history</p>
-
-        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+     <p style="color: #00B7CD; font-size: 1.1em; font-weight: 600; margin-bottom: 6px;">To view Customer payment history</p>
+     <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
           <label for="client-search" style="font-size: 1.1em;">Search Customer</label>
           <i class="fa fa-search-plus" style="font-size: 20px; color: #DF301C;" aria-hidden="true"></i>
         </div>
+    <section class="search-section">
+      <form id="searchClient" style="align-items: center;">
+   
+
+        
 
         <div class="search-form-row">
           <input id="client-search" type="text" name="search" placeholder="Enter ID Number">
