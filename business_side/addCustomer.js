@@ -44,7 +44,9 @@ function saveClient () {
    if(data.status == "OK"){   
       console.log(data.numberOfCUstomer)
       sessionStorage.setItem("total_count",data.numberOfCUstomer);
-      //window.location.href = "dashboard.html";
+     
+
+     
       const url = new URL('https://c-zawena.khulekaniszondo6.workers.dev/cllient_side/form');
 
        // 2. Set/Update a parameter
@@ -54,14 +56,6 @@ function saveClient () {
        const unique_link = document.getElementById("customer_link");
 
        unique_link.value = url.toString();
-       
-       
-       
-
-
-      
-
-  
   
    }else{
     console.log("No User found");
@@ -83,8 +77,10 @@ function saveClient () {
             const textToCopy = inputElement.value;
             if(textToCopy){
                    navigator.clipboard.writeText(textToCopy)
+
                 .then(() => {
                     alert("Copied to clipboard: " + textToCopy);
+                     window.location.href = "dashboard.html";
                 })
                 .catch(err => {
                     console.error("Failed to copy text: ", err);
@@ -96,4 +92,5 @@ function saveClient () {
         }
 
 saveClient();
-copyInputValue(); 
+copyInputValue();  
+ 

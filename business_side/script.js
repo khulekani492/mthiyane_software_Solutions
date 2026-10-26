@@ -1,15 +1,15 @@
   console.log("dashboard live");
   const nameEl =   document.getElementById("bsName");
-    const nameElsub =   document.getElementById("bsName2");
+  
   if (nameEl) {
     const businessName = sessionStorage.getItem("businessName");
   if (businessName) {
       nameEl.textContent = businessName;
-      nameElsub.textContent = businessName;
+      
     }
   }
   console.log("customer number id")
-  const n_customer = document.getElementById("n_customers");
+  const n_customer = document.getElementById("pending_customers");
   
   const new_value = sessionStorage.getItem("total_count");
 
