@@ -1,178 +1,590 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dashboard</title>
-  <link rel="stylesheet" href="/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
- <style>
-  .btn {
-    background-color: DodgerBlue;
-    border: none;
-    color: white;
-    padding: 12px 30px;
-    cursor: pointer;
-    font-size: 20px;
-    display: inline-block;
-    text-decoration: none;
-    border-radius: 4px;
-    text-align: center;
-  }
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <style>
+    :root {
+      --orange: #FF9100;
+      --orange-soft: #FFF1D1;
+      --red: #DF301C;
+      --red-dark: #c22511;
+      --cyan: #00B7CD;
+      --cyan-soft: #eaf9fc;
+      --green: #1f9d58;
+      --white: #ffffff;
+      --dark: #1d1d1d;
+      --muted: #666;
+      --border: #e0e0e0;
+      --shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    }
 
-  .btn:hover {
-    background-color: RoyalBlue;
-  }
+    * {
+      box-sizing: border-box;
+    }
 
-  .dashboard-container {
-    border: 1px solid #e0e0e0;
-    padding: 24px;
-    max-width: 1100px;
-    width: min(1100px, calc(100% - 24px));
-    margin: 20px auto;
-    border-radius: 8px;
-    box-sizing: border-box;
-  }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #fff;
+      color: var(--dark);
+    }
 
-  .badge-card {
-    color: #000;
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 420px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
+    a {
+      text-decoration: none;
+    }
 
-  .badge-btn {
-    display: inline-block;
-    padding: 10px 18px;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 4px;
-    text-align: center;
-    width: fit-content;
-    cursor: pointer;
-  }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      background: #fff;
+      border-bottom: 1px solid #f0f0f0;
+      position: relative;
+    }
 
-  .search-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 30px 0;
-  }
+    #logoImg {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-  .search-form-row {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    flex-wrap: wrap;
-  }
+    .logo {
+      max-height: 52px;
+      width: auto;
+    }
 
-  .action-row {
-    display: flex;
-    flex-direction: row;
-    gap: 12px;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-top: 12px;
-  }
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+    }
 
-  .btn,
-  #toggleReceiptBook {
-    display: inline-block;
-    min-width: 180px;
-    width: auto;
-    white-space: nowrap;
-  }
+    .hamburger .bar {
+      width: 26px;
+      height: 3px;
+      background: var(--dark);
+      border-radius: 3px;
+    }
 
-  #pending_customers,
-  #n_customers {
-    display: flex !important;
-    gap: 12px;
-    margin-top: 8px;
-    flex-wrap: wrap;
-    align-items: center;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
+    .nav_links {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      padding: 12px 18px;
+      margin: 0;
+      background: #fff;
+      border-bottom: 1px solid #f4f4f4;
+    }
 
-  #pending_customers span,
-  #n_customers span {
-    display: inline-block;
-  }
+    .nav_bar a {
+      display: inline-block;
+      padding: 10px 14px;
+      color: var(--dark);
+      font-weight: 600;
+      border-radius: 4px;
+      transition: 0.2s ease;
+    }
 
-  #n_customers .action-row {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
+    .nav_bar a:hover {
+      background: #f7f7f7;
+    }
 
-  #client-search {
-    min-width: 0;
-    width: min(340px, 100%);
-  }
+    .welcomeMsg {
+      width: 100%;
+      padding: 0 18px;
+      margin-top: 10px;
+    }
 
-  .search-form-row input,
-  .search-form-row button {
-    box-sizing: border-box;
-  }
+    .welcomeMsg > div {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      gap: 20px;
+    }
 
-  @media (max-width: 768px) {
+    .welcomeMsg > div > div {
+      background-color: var(--orange);
+      flex: 1;
+      padding: 20px 22px;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .welcomeMsg h2 {
+      color: var(--orange-soft);
+      margin: 0;
+      font-size: clamp(1.5rem, 2vw, 2rem);
+    }
+
     .dashboard-container {
-      padding: 16px 14px;
-      width: min(100%, calc(100% - 16px));
+      border: 1px solid var(--border);
+      padding: 24px;
+      max-width: 1100px;
+      width: min(1100px, calc(100% - 24px));
+      margin: 20px auto;
+      border-radius: 12px;
+      background: #fff;
+      box-sizing: border-box;
     }
 
-    .action-row {
-      flex-direction: column;
-      align-items: stretch;
-    }
-
-    .btn,
-    #toggleReceiptBook {
-      width: 100% !important;
-      display: block;
-      white-space: normal;
+    .top-text {
+      font-weight: 500;
+      margin: 24px 0 12px;
       text-align: center;
-      min-width: 0;
+      font-size: 1.1rem;
     }
 
-    .search-form-row {
-      flex-direction: column;
-      width: 100%;
+    .top-text strong {
+      color: var(--red);
     }
 
-    #client-search {
-      width: 100%;
+    .summary-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      margin-top: 18px;
     }
 
-    .search-form-row button {
-      width: 100% !important;
+    .summary-card h3 {
+      margin: 0 0 12px;
+      font-size: 1.2rem;
+    }
+
+    .label {
+      font-size: 1.1rem;
+      margin: 0 0 8px;
+      font-weight: 600;
+    }
+
+    .value {
+      font-size: 1.35rem;
+      margin: 0;
+      font-weight: 700;
+    }
+
+    .stats-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .count-box {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 80px;
+      min-height: 42px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      background: #f9f9f9;
+      border: 1px solid var(--border);
+      font-weight: 700;
+      font-size: 1.2rem;
     }
 
     #pending_customers,
     #n_customers {
-      flex-direction: column;
-      align-items: flex-start;
+      display: flex !important;
+      gap: 12px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+
+    #pending_customers span,
+    #n_customers span {
+      display: inline-block;
+    }
+
+    #n_customers .action-row {
+      display: flex !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+
+    .receipt-panel {
+      border: 2px solid #000;
+      border-radius: 12px;
+      padding: 18px;
+      background: #fff;
+      margin-top: 22px;
+    }
+
+    .receipt-panel-title {
+      font-weight: bold;
+      margin: 0 0 12px;
+      font-size: 1rem;
+    }
+
+    .receipt-input {
+      width: 90px;
+      padding: 8px 10px;
+      border: 1px solid #cfcfcf;
+      border-radius: 6px;
+      font-size: 1rem;
+      margin-bottom: 12px;
+    }
+
+    .receipt-note {
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .btn {
+      background-color: DodgerBlue;
+      border: none;
+      color: white;
+      padding: 12px 30px;
+      cursor: pointer;
+      font-size: 20px;
+      display: inline-block;
+      text-decoration: none;
+      border-radius: 4px;
+      text-align: center;
+      transition: 0.2s ease;
+      font-weight: 600;
+    }
+
+    .btn:hover {
+      background-color: RoyalBlue;
+    }
+
+    .btn-red {
+      background-color: var(--red);
+      color: #fff1d1;
+    }
+
+    .btn-red:hover {
+      background-color: var(--red-dark);
+    }
+
+    .btn-cyan {
+      background-color: var(--cyan);
+      color: #fff1d1;
+    }
+
+    .btn-cyan:hover {
+      background-color: #009db2;
+    }
+
+    .btn-green {
+      background-color: green;
+      color: #fff1d1;
+      width: 30%;
+      min-width: 140px;
+      font-weight: bold;
+      border-radius: 4px;
+      padding: 12px 18px;
+      display: inline-block;
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    .btn-green:hover {
+      filter: brightness(0.95);
+    }
+
+    .action-row {
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .btn,
+    #toggleReceiptBook {
+      display: inline-block;
+      min-width: 180px;
+      width: auto;
+      white-space: nowrap;
+    }
+
+    .search-header {
+      display: flex;
+      align-items: center;
       gap: 8px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    .search-header label {
+      font-size: 1.1em;
+      font-weight: 600;
+    }
+
+    .search-header i {
+      font-size: 20px;
+      color: var(--red);
+    }
+
+    .search-form-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    #client-search {
+      min-width: 0;
+      width: min(340px, 100%);
+      border: 1px solid #dadada;
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    #client-search:focus {
+      border-color: var(--cyan);
+      box-shadow: 0 0 0 3px rgba(0, 183, 205, 0.15);
+    }
+
+    .search-form-row button {
+      border: none;
+      padding: 12px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      background-color: orangered;
+      color: white;
+      transition: 0.2s ease;
+    }
+
+    .search-form-row button:hover {
+      filter: brightness(0.95);
+    }
+
+    .clientSearch {
+      margin-top: 22px;
     }
 
     .badge-card {
-      max-width: 100%;
+      color: #000;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 420px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      box-shadow: var(--shadow);
+      background: #fff;
+      border: 1px solid var(--border);
     }
-  }
-</style>
-</head>
-<body>
 
+    .badge-header {
+      font-size: 1.1em;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 0;
+    }
+
+    .badge-header h2 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    .badge-pill {
+      color: #000;
+      padding: 5px 10px;
+      background-color: var(--cyan);
+      font-weight: bold;
+      border-radius: 5px;
+    }
+
+    .receipt-preview-wrap {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .receipt-preview {
+      height: 200px;
+      width: 160px;
+      object-fit: contain;
+      border-radius: 8px;
+      background: #fafafa;
+      border: 1px solid #eee;
+    }
+
+    .badge-card h3 {
+      margin: 0;
+      font-size: 1.25rem;
+    }
+
+    .badge-card p {
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .wa-logo {
+      height: 50px;
+      width: auto;
+    }
+
+    .client_profile {
+      display: none;
+      margin-left: 3%;
+      margin-top: 18px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      max-width: 540px;
+    }
+
+    .client_profile h2 {
+      font-size: 20px;
+      color: #000000;
+      margin: 0 0 1rem;
+    }
+
+    .client_profile label {
+      display: block;
+      font-weight: 700;
+      margin-top: 10px;
+      margin-bottom: 6px;
+    }
+
+    .client_profile p {
+      margin: 0;
+      font-size: 20px;
+      font-style: normal;
+      line-height: 1.6;
+    }
+
+    .client_profile a {
+      color: var(--red);
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    #no_customer {
+      text-align: center;
+      display: none;
+      font-size: 16px;
+      margin-top: 18px;
+      color: var(--muted);
+    }
+
+    footer {
+      margin-top: 24px;
+      background: #f8f8f8;
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .site-footer {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 18px 20px;
+      text-align: center;
+      color: var(--dark);
+    }
+
+    @media (max-width: 768px) {
+      .dashboard-container {
+        padding: 16px 14px;
+        width: min(100%, calc(100% - 16px));
+      }
+
+      .welcomeMsg {
+        padding: 0 10px;
+      }
+
+      .welcomeMsg > div {
+        gap: 10px;
+      }
+
+      .welcomeMsg > div > div {
+        padding: 16px 18px;
+      }
+
+      .summary-card {
+        padding: 16px;
+      }
+
+      .action-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn,
+      #toggleReceiptBook {
+        width: 100% !important;
+        display: block;
+        white-space: normal;
+        text-align: center;
+        min-width: 0;
+      }
+
+      .search-form-row {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      #client-search {
+        width: 100%;
+      }
+
+      .search-form-row button {
+        width: 100% !important;
+      }
+
+      #pending_customers,
+      #n_customers {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .receipt-panel {
+        padding: 14px;
+      }
+
+      .badge-card {
+        max-width: 100%;
+      }
+
+      .receipt-preview-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .btn-green {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
   <nav>
     <div id="logoImg">
-      <img src="/klogo.png" alt="logo" class="logo">
+      <img src="/klogo.png" alt="logo" class="logo" />
     </div>
-    <div class="hamburger">
+    <div class="hamburger" aria-label="Menu">
       <div class="bar"></div>
       <div class="bar"></div>
       <div class="bar"></div>
@@ -192,114 +604,116 @@
   </ul>
 
   <div class="welcomeMsg">
-   <div style="display: flex; align-items: center; width: 100%; margin-top: 10px; gap: 20px;">
-  
+    <div>
+      <div>
+        <h2>C-zWena Dashboard</h2>
+      </div>
+    </div>
+  </div>
 
-  <div style="background-color: #FF9100; flex: 1; padding: 10px; margin-left: auto; padding: 20px;">
-    <h2 style="color:#FFF1D1; margin: 0;">C-zWena Dashboard</h2>
-  </div>
-</div>
-  </div>
-<p style="font-weight: 500; margin-top: 24px; text-align: center;">
-     30 pages <span style="color: #DF301C; font-weight: bold;">FOR FREE!</span> To Get started with c-zawena.
-    </p>
+  <p class="top-text">
+    30 pages <strong>FOR FREE!</strong> To Get started with c-zawena.
+  </p>
+
   <main class="dashboard dashboard-container">
-    <div id="div1" style="margin-top: 18px;">
-      <p style="font-size: 1.2em; margin: 0;">Business Name</p>
-      <p id="bsName" style="font-size: 1.3em; margin: 4px 0;"></p>
-         <div style="font-size: 1.2em; margin-top: 16px;">
-        <p style="margin: 0;">Pending Customers</p>
+    <div class="summary-card" id="div1">
+      <h3>Business Name</h3>
+      <p id="bsName" class="value"></p>
+
+      <div style="margin-top: 20px;">
+        <p class="label">Pending Customers</p>
       </div>
-      <div id="pending_customers" style="display: flex; gap: 70px; margin-top: 8px;">
-        <span>0</span>
+      <div id="pending_customers" class="stats-row">
+        <span class="count-box">0</span>
       </div>
-      <div style="border: 2px solid black; padding: 10px; gap: 10px; display: flex; flex-direction: column;">
-        <p  style="font-weight: bold;">Available Receipt pages.</p>
-         <input type="text" value="30" style="width: 20%;" />
-              <button id="toggleReceiptBook" type="button" style="background-color: #00B7CD; color: #FFF1D1; width: fit-content; padding: 12px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 1rem; font-weight: 600;">
+
+      <div class="receipt-panel">
+        <p class="receipt-panel-title">Available Receipt pages.</p>
+
+        <input type="text" value="30" class="receipt-input" aria-label="Available receipt pages" />
+
+        <button id="toggleReceiptBook" type="button" class="btn btn-cyan">
           View Receipt Book
         </button>
-       <p>For your Customers to keep receving  receipt page</p>
-    <a href="digitalBook.html" style="background-color: green; width: 30%; color: #FFF1D1; font-weight: bold;">BUY MORE</a> 
-      </div>
-     
-      <div style="font-size: 1.2em; margin-top: 16px;">
-        <p style="margin: 0;">Number of Customers</p>
-    
-      </div>
-      <div id="n_customers" style="display: flex; gap: 10px; margin-top: 8px;">
-        <span>0</span>
-        
-              <div class="action-row">
-        <a href="client_account.html" class="btn" style="background-color: #DF301C; color: #FFF1D1; width: fit-content;">Add New Customer</a>
 
-   
+        <p class="receipt-note">For your Customers to keep receiving receipt pages.</p>
+
+        <a href="digitalBook.html" class="btn-green">BUY MORE</a>
       </div>
+
+      <div style="margin-top: 20px;">
+        <p class="label">Number of Customers</p>
       </div>
-<p style="color: #00B7CD; font-size: 1.1em; font-weight: 600; margin-bottom: 6px;">To view Customer payment history</p>
-     <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-          <label for="client-search" style="font-size: 1.1em;">Search Customer</label>
-          <i class="fa fa-search-plus" style="font-size: 20px; color: #DF301C;" aria-hidden="true"></i>
+
+      <div id="n_customers" class="stats-row">
+        <span class="count-box">0</span>
+
+        <div class="action-row">
+          <a href="client_account.html" class="btn btn-red">Add New Customer</a>
         </div>
-        <form id="searchClient" style="align-items: center;">
+      </div>
+
+      <p style="color: #00B7CD; font-size: 1.1em; font-weight: 600; margin: 22px 0 10px;">
+        To view Customer payment history
+      </p>
+
+      <div class="search-header">
+        <label for="client-search">Search Customer</label>
+        <i class="fa fa-search-plus" aria-hidden="true"></i>
+      </div>
+
+      <form id="searchClient" style="margin: 0;">
         <div class="search-form-row">
-          <input id="client-search" type="text" name="search" placeholder="Enter ID Number">
-          <button style="background-color: orangered; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-size: 1rem; width: 99%;" type="submit">Search</button>
+          <input id="client-search" type="text" name="search" placeholder="Enter ID Number" />
+          <button type="submit">Search</button>
         </div>
       </form>
-
-   
-
-    
     </div>
-
-    
-    
 
     <section id="receiptBadgeSection" class="clientSearch" style="display: none; margin-top: 22px;">
       <div class="badge-card">
-        
-        <div style="font-size: 1.1em; display: flex; align-items: center; gap: 16px;">
-         <h2>Available :</h2>
-          <span style="color: #000; padding: 2px 8px; background-color: #00B7CD; font-weight: bold; border-radius: 3px;">30 pages</span>
+        <div class="badge-header">
+          <h2>Available :</h2>
+          <span class="badge-pill">30 pages</span>
         </div>
-         
-        <div style="display: flex; flex-direction: row; gap: 20px;">
-          <img src="free_ trial.png" alt="Receipt Preview Template" style="height: 200px; width: 160px; object-fit: contain;">
-          <div></div>
+
+        <div class="receipt-preview-wrap">
+          <img src="free_ trial.png" alt="Receipt Preview Template" class="receipt-preview" />
         </div>
+
         <h3>PROOF OF PAYMENT</h3>
-        <p>After customer payment<br> a receipt page is sent via Whatsapp</p>
-        <img src="/cllient_side/WhatsApp_Logo_green.svg" alt="WhatsApp logo" height="50">
-        <p style="margin: 0; font-size: 1rem;">
+        <p>After customer payment<br /> a receipt page is sent via WhatsApp</p>
+
+        <img src="/cllient_side/WhatsApp_Logo_green.svg" alt="WhatsApp logo" class="wa-logo" />
+
+        <p>
           Click <a href="receiptPages.html" style="color: #DF301C; font-weight: bold; text-decoration: underline;">send</a> to receive a receipt on your whatsapp.
         </p>
       </div>
     </section>
-     
-    <p id="no_customer" style="text-align: center; display: none; font-size: 16px;">No Customer found</p>
-    <div class="client_profile" id="details_" style="display: none; margin-left: 3%;">
-      <h2 style="font-size: 20px; color: #000000; margin-bottom: 1rem;">
-        Customer Information and Details
-      </h2>
+
+    <p id="no_customer">No Customer found</p>
+
+    <div class="client_profile" id="details_">
+      <h2>Customer Information and Details</h2>
 
       <label>Customer Name</label>
-      <p style="font-size: 20px; font-style: normal;" id="customerName"></p>
+      <p id="customerName"></p>
 
       <label>Customer Surname</label>
-      <p style="font-size: 20px; font-style: normal;" id="customerSurname"></p>
+      <p id="customerSurname"></p>
 
       <label>Customer Number</label>
-      <p style="font-size: 20px; font-style: normal;" id="customerNumber"></p>
+      <p id="customerNumber"></p>
 
       <label>Customer ID NO.</label>
-      <p style="font-size: 20px; font-style: normal;" id="customerID"></p>
+      <p id="customerID"></p>
 
       <label>Customer Amount</label>
-      <p style="font-size: 20px; font-style: normal;" id="customerAmount"></p>
+      <p id="customerAmount"></p>
 
-      <p style="margin: 0; font-size: 1rem;">
-        Click <a href="paymentHistory.html" style="color: #DF301C; font-weight: bold; text-decoration: underline;">view</a> to see Payment history.
+      <p style="margin-top: 16px;">
+        Click <a href="paymentHistory.html">view</a> to see Payment history.
       </p>
     </div>
 
