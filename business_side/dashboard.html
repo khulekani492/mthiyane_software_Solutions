@@ -218,7 +218,7 @@
     }
 
     .receipt-panel {
-      border: 2px solid #000;
+      border: 2px solid whitesmoke;
       border-radius: 12px;
       padding: 18px;
       background: #fff;
@@ -576,6 +576,12 @@
         width: 100%;
       }
     }
+  .top-text{
+  text-align: center;
+  border: 2px solid rgb(238, 232, 232);
+  padding: 10px;
+}
+  
   </style>
 </head>
 
@@ -588,20 +594,12 @@
       <div class="bar"></div>
       <div class="bar"></div>
       <div class="bar"></div>
+
     </div>
+    
   </nav>
 
-  <ul class="nav_links">
-    <li class="nav_bar"><a href="/index.html">Home</a></li>
-    <li class="nav_bar"><a href="/more.html">About</a></li>
-    <li class="nav_bar">
-      <a href="/business_side/login.html" style="background-color: #00B7CD; color: #FCE59A; font-weight: bold; border-radius: 4px;">Login</a>
-    </li>
-    <li class="nav_bar"><a href="/business_side/account.html">Get Started</a></li>
-    <li class="nav_bar"><a href="/client_side/payment.html" style="color: #DF301C;">Payment Page</a></li>
-    <li class="nav_bar"><a href="/client_side/login.html" style="color: #DF301C;">Client Login</a></li>
-    <li class="nav_bar"><a href="/business_side/dashboard.html" style="color: #DF301C;">Dashboard</a></li>
-  </ul>
+
 
   <div class="welcomeMsg">
     <div>
@@ -623,8 +621,8 @@
       <div style="margin-top: 20px;">
         <p class="label">Pending Customers</p>
       </div>
-      <div id="pending_customers" class="stats-row">
-        <span class="count-box">0</span>
+      <div id="pending_customers" class="stats-row" style="border: 2px solid #f7f7f7; width: 20%; padding: 10px;">
+        <span class="count-box" style="color: #DF301C;">0</span>
       </div>
 
       <div class="receipt-panel">
