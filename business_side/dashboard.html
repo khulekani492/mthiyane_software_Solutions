@@ -149,40 +149,61 @@
   </div>
 </div>
   </div>
-
+<p style="font-weight: 500; margin-top: 24px; text-align: center;">
+     30 pages <span style="color: #DF301C; font-weight: bold;">FOR FREE!</span> To Get started with c-zawena.
+    </p>
   <main class="dashboard dashboard-container">
     <div id="div1" style="margin-top: 18px;">
       <p style="font-size: 1.2em; margin: 0;">Business Name</p>
       <p id="bsName" style="font-size: 1.3em; margin: 4px 0;"></p>
-
-      <div style="font-size: 1.2em; margin-top: 16px;">
-        <p style="margin: 0;">Number of Customers</p>
-      </div>
-      <div id="n_customers" style="display: flex; gap: 70px; margin-top: 8px;">
-        <span>0</span>
-      </div>
-
-      <div style="font-size: 1.2em; margin-top: 16px;">
-        <p style="margin: 0;">pending Customers</p>
+         <div style="font-size: 1.2em; margin-top: 16px;">
+        <p style="margin: 0;">Pending Customers</p>
       </div>
       <div id="pending_customers" style="display: flex; gap: 70px; margin-top: 8px;">
         <span>0</span>
       </div>
-
-      <div class="action-row">
-        <a href="client_account.html" class="btn" style="background-color: #DF301C; color: #FFF1D1; width: fit-content;">Add New Customer</a>
-
-        <button id="toggleReceiptBook" type="button" style="background-color: #00B7CD; color: #FFF1D1; width: fit-content; padding: 12px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 1rem; font-weight: 600;">
+      <div style="border: 2px solid black; padding: 10px; gap: 10px; display: flex; flex-direction: column;">
+        <p  style="font-weight: bold;">Available Receipt pages.</p>
+         <input type="text" value="30" style="width: 20%;" />
+              <button id="toggleReceiptBook" type="button" style="background-color: #00B7CD; color: #FFF1D1; width: fit-content; padding: 12px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 1rem; font-weight: 600;">
           View Receipt Book
         </button>
+       <p>For your Customers to keep receving  receipt page</p>
+    <a href="digitalBook.html" style="background-color: green; width: 30%; color: #FFF1D1; font-weight: bold;">BUY MORE</a> 
       </div>
+     
+      <div style="font-size: 1.2em; margin-top: 16px;">
+        <p style="margin: 0;">Number of Customers</p>
+    
+      </div>
+      <div id="n_customers" style="display: flex; gap: 70px; margin-top: 8px;">
+        <span>0</span>
+        
+              <div class="action-row">
+        <a href="client_account.html" class="btn" style="background-color: #DF301C; color: #FFF1D1; width: fit-content;">Add New Customer</a>
+
+   
+      </div>
+      </div>
+<p style="color: #00B7CD; font-size: 1.1em; font-weight: 600; margin-bottom: 6px;">To view Customer payment history</p>
+     <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+          <label for="client-search" style="font-size: 1.1em;">Search Customer</label>
+          <i class="fa fa-search-plus" style="font-size: 20px; color: #DF301C;" aria-hidden="true"></i>
+        </div>
+        <form id="searchClient" style="align-items: center;">
+        <div class="search-form-row">
+          <input id="client-search" type="text" name="search" placeholder="Enter ID Number">
+          <button style="background-color: orangered; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-size: 1rem; width: 99%;" type="submit">Search</button>
+        </div>
+      </form>
+
+   
+
+    
     </div>
 
-    <p style="font-weight: 500; margin-top: 24px;">
-     30 pages <span style="color: #DF301C; font-weight: bold;">FOR FREE!</span> To Get started with c-zawena.
-    </p>
-    <p>For your Customers to keep receving  receipt page</p>
-    <a href="digitalBook.html" style="background-color: green; width: 30%; color: #FFF1D1; font-weight: bold;">BUY MORE</a>
+    
+    
 
     <section id="receiptBadgeSection" class="clientSearch" style="display: none; margin-top: 22px;">
       <div class="badge-card">
@@ -204,18 +225,7 @@
         </p>
       </div>
     </section>
-     <p style="color: #00B7CD; font-size: 1.1em; font-weight: 600; margin-bottom: 6px;">To view Customer payment history</p>
-     <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-          <label for="client-search" style="font-size: 1.1em;">Search Customer</label>
-          <i class="fa fa-search-plus" style="font-size: 20px; color: #DF301C;" aria-hidden="true"></i>
-        </div>
-        <form id="searchClient" style="align-items: center;">
-        <div class="search-form-row">
-          <input id="client-search" type="text" name="search" placeholder="Enter ID Number">
-          <button style="background-color: orangered; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-size: 1rem; width: 99%;" type="submit">Search</button>
-        </div>
-      </form>
-
+     
     <p id="no_customer" style="text-align: center; display: none; font-size: 16px;">No Customer found</p>
     <div class="client_profile" id="details_" style="display: none; margin-left: 3%;">
       <h2 style="font-size: 20px; color: #000000; margin-bottom: 1rem;">
