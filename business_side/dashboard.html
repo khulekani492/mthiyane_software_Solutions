@@ -6,114 +6,165 @@
   <title>Dashboard</title>
   <link rel="stylesheet" href="/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <style>
-    .btn {
-      background-color: DodgerBlue;
-      border: none;
-      color: white;
-      padding: 12px 30px;
-      cursor: pointer;
-      font-size: 20px;
-      display: inline-block;
-      text-decoration: none;
-      border-radius: 4px;
-      text-align: center;
-    }
-    .btn:hover {
-      background-color: RoyalBlue;
-    }
+ <style>
+  .btn {
+    background-color: DodgerBlue;
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    cursor: pointer;
+    font-size: 20px;
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 4px;
+    text-align: center;
+  }
 
+  .btn:hover {
+    background-color: RoyalBlue;
+  }
+
+  .dashboard-container {
+    border: 1px solid #e0e0e0;
+    padding: 24px;
+    max-width: 1100px;
+    width: min(1100px, calc(100% - 24px));
+    margin: 20px auto;
+    border-radius: 8px;
+    box-sizing: border-box;
+  }
+
+  .badge-card {
+    color: #000;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .badge-btn {
+    display: inline-block;
+    padding: 10px 18px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 4px;
+    text-align: center;
+    width: fit-content;
+    cursor: pointer;
+  }
+
+  .search-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0;
+  }
+
+  .search-form-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .action-row {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 12px;
+  }
+
+  .btn,
+  #toggleReceiptBook {
+    display: inline-block;
+    min-width: 180px;
+    width: auto;
+    white-space: nowrap;
+  }
+
+  #pending_customers,
+  #n_customers {
+    display: flex !important;
+    gap: 12px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  #pending_customers span,
+  #n_customers span {
+    display: inline-block;
+  }
+
+  #n_customers .action-row {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  #client-search {
+    min-width: 0;
+    width: min(340px, 100%);
+  }
+
+  .search-form-row input,
+  .search-form-row button {
+    box-sizing: border-box;
+  }
+
+  @media (max-width: 768px) {
     .dashboard-container {
-      border: 1px solid #e0e0e0;
-      padding: 24px;
-      max-width: 1100px;
-      margin: 20px auto;
-      border-radius: 8px;
-    }
-
-    .badge-card {
-      color: #000;
-      padding: 20px;
-      border-radius: 8px;
-      max-width: 420px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .badge-btn {
-      display: inline-block;
-      padding: 10px 18px;
-      font-weight: 600;
-      text-decoration: none;
-      border-radius: 4px;
-      text-align: center;
-      width: fit-content;
-      cursor: pointer;
-    }
-
-    .search-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin: 30px 0;
-    }
-
-    .search-form-row {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-      flex-wrap: wrap;
+      padding: 16px 14px;
+      width: min(100%, calc(100% - 16px));
     }
 
     .action-row {
-      display: flex;
-      flex-direction: row;
-      gap: 12px;
-      align-items: center;
-      flex-wrap: wrap;
-      margin-top: 12px;
+      flex-direction: column;
+      align-items: stretch;
     }
 
     .btn,
     #toggleReceiptBook {
-      display: inline-block;
-      min-width: 180px;
-      width: auto;
-      white-space: nowrap;
+      width: 100% !important;
+      display: block;
+      white-space: normal;
+      text-align: center;
+      min-width: 0;
     }
 
-    @media (max-width: 768px) {
-      .action-row {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .btn,
-      #toggleReceiptBook {
-        width: 100% !important;
-        display: block;
-        white-space: normal;
-        text-align: center;
-        min-width: 0;
-      }
-
-      .search-form-row {
-        flex-direction: column;
-        width: 100%;
-      }
-
-      #client-search {
-        width: 100%;
-      }
-
-      .search-form-row button {
-        width: 100% !important;
-      }
+    .search-form-row {
+      flex-direction: column;
+      width: 100%;
     }
-  </style>
+
+    #client-search {
+      width: 100%;
+    }
+
+    .search-form-row button {
+      width: 100% !important;
+    }
+
+    #pending_customers,
+    #n_customers {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .badge-card {
+      max-width: 100%;
+    }
+  }
+</style>
 </head>
 <body>
 
