@@ -78,6 +78,55 @@ nav {
     font-family: 'Courier New', Courier, monospace;
 }
 
+    .chart-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0 0 18px 0;
+      color: #24292f;
+    }
+
+    /* 12-column grid: month label on top, box below */
+    .graphHistory {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 8px;
+    
+      padding: 15px;
+      background-color: #ffffff;
+    }
+     .month-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .month-label {
+      font-size: 12px;
+      color: #57606a;
+    }
+
+    /* Rounded contribution box like GitHub */
+    .contrib-box {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 4px;
+      outline: 1px solid rgba(27, 31, 35, 0.06);
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+
+    .contrib-box:hover {
+      transform: scale(1.1);
+    }
+   /* Contribution intensity color levels */
+    .level-0 {
+      background-color: #ebedf0;
+    }
+
+    .level-1 {
+      background-color: orangered;
+    }
 /* ==========================================================================
    Page Containers & General Layout
    ========================================================================== */
