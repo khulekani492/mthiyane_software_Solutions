@@ -442,7 +442,32 @@
       height: 50px;
       width: auto;
     }
+.btn-add-customer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #E52319;
+  color: #ffffff;
+  padding: 14px 28px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  border-radius: 14px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(229, 35, 25, 0.28);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
 
+.btn-add-customer:hover {
+  background-color: #c91b12;
+  transform: translateY(-1px);
+}
+
+.btn-add-customer i {
+  font-size: 1.25rem;
+}
     .client_profile {
       display: none;
       margin-left: 3%;
@@ -617,7 +642,16 @@
     <div class="summary-card" id="div1">
       <h3>Business Name</h3>
       <p id="bsName" class="value"></p>
+<div id="n_customers">
+  <p style="font-weight: bold;" >Number of Customers</p>
+  <span class="count-box">0</span>
 
+  <div class="action-row">
+    <a href="client_account.html" class="btn-add-customer">
+      Add New Customer <i class="fa fa-user-plus" aria-hidden="true"></i>
+    </a>
+  </div>
+</div>
       <div style="margin-top: 20px;">
         <p class="label">Pending Customers</p>
       </div>
@@ -643,13 +677,7 @@
         <p class="label">Number of Customers</p>
       </div>
 
-      <div id="n_customers" class="stats-row">
-        <span class="count-box">0</span>
-
-        <div class="action-row">
-          <a href="client_account.html" class="btn btn-red">Add New Customer</a>
-        </div>
-      </div>
+      
 
       <p style="color: #00B7CD; font-size: 1.1em; font-weight: 600; margin: 22px 0 10px;">
         To view Customer payment history
