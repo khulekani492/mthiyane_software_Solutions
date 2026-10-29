@@ -15,7 +15,7 @@
   const pending_forms = sessionStorage.getItem("total_pending");
   const completed_forms = sessionStorage.getItem("total_customers");
 
-  console.log(new_value + " cache customer count" );
+  
 
   n_pending.textContent = pending_forms ;
   n_pending.style.fontSize = "50px";
