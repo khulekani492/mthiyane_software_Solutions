@@ -86,47 +86,195 @@ nav {
     }
 
     /* 12-column grid: month label on top, box below */
-    .graphHistory {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 8px;
-    
-      padding: 15px;
-      background-color: #ffffff;
-    }
-     .month-col {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-    }
+.graphHistory {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 14px 16px;
+  background: #ffffff;
+  border: 1px solid #e1e4e8;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  width: 100%;
+  max-width: 580px;
+  box-sizing: border-box;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
 
-    .month-label {
-      font-size: 12px;
-      color: #57606a;
-    }
+.month-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex: 1 1 0;
+  min-width: 18px;
+}
 
-    /* Rounded contribution box like GitHub */
-    .contrib-box {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      border-radius: 4px;
-      outline: 1px solid rgba(27, 31, 35, 0.06);
-      cursor: pointer;
-      transition: transform 0.15s ease;
-    }
+.month-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: #656d76;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  user-select: none;
+}
 
-    .contrib-box:hover {
-      transform: scale(1.1);
-    }
-   /* Contribution intensity color levels */
-    .level-0 {
-      background-color: #ebedf0;
-    }
+.contrib-box {
+  width: 100%;
+  max-width: 26px;
+  aspect-ratio: 1 / 1;
+  border-radius: 4px;
+  outline: 1px solid rgba(27, 31, 35, 0.06);
+  cursor: pointer;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
 
-    .level-1 {
-      background-color: orangered;
-    }
+.contrib-box:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+/* Activity Levels */
+.contrib-box.level-0 {
+  background-color: #ebedf0;
+}
+
+.contrib-box.level-1 {
+  background-color: #39d353;
+}
+
+/* Compact Mobile View */
+@media (max-width: 480px) {
+  .graphHistory {
+    gap: 4px;
+    padding: 10px 12px;
+  }
+
+  .month-col {
+    gap: 4px;
+    min-width: 14px;
+  }
+
+  .month-label {
+    font-size: 9px;
+    letter-spacing: 0;
+  }
+
+  .contrib-box {
+    border-radius: 3px;
+  }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .graphHistory {
+    background: #0d1117;
+    border-color: #30363d;
+  }
+
+  .month-label {
+    color: #8b949e;
+  }
+
+  .contrib-box {
+    outline-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .contrib-box.level-0 {
+    background-color: #161b22;
+  }
+
+  .contrib-box.level-1 {
+    background-color: #238636;
+  }
+}
+.legend-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 8px 4px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-container .contrib-box {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  outline: 1px solid rgba(27, 31, 35, 0.08);
+}
+
+.legend-text {
+  font-size: 12px;
+  font-weight: 500;
+  color: #57606a;
+  user-select: none;
+}
+
+.check-mark {
+  color: #2da44e;
+  font-weight: 600;
+}
+
+/* Colors matching the graph */
+.contrib-box.level-0 {
+  background-color: #f5512c;
+}
+
+.contrib-box.level-1 {
+  background-color: #39d353;
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .legend-text {
+    color: #8b949e;
+  }
+
+  .check-mark {
+    color: #3fb950;
+  }
+
+  .legend-container .contrib-box {
+    outline-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .contrib-box.level-0 {
+    background-color: #161b22;
+  }
+
+  .contrib-box.level-1 {
+    background-color: #238636;
+  }
+}
+
+/* Compact Mobile Screens */
+@media (max-width: 480px) {
+  .legend-container {
+    gap: 12px;
+  }
+
+  .legend-container .contrib-box {
+    width: 12px;
+    height: 12px;
+  }
+
+  .legend-text {
+    font-size: 11px;
+  }
+}
+
 /* ==========================================================================
    Page Containers & General Layout
    ========================================================================== */

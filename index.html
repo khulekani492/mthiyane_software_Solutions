@@ -24,11 +24,9 @@
         <ul class="nav_links">
             <li class="nav_bar"><a href="index.html">Home</a></li>
             <li class="nav_bar"><a href="more.html">about</a></li>
-            <li class="nav_bar"><a href="/business_side/login.html" style="background-color: #00B7CD; color: #FCE59A; font-weight: bold;">LOGIN</a></li>
+            <li class="nav_bar"><a href="/business_side/login.html" style="background-color: #EF6905; color: #FCE59A; font-weight: bold;">LOGIN</a></li>
             <li class="nav_bar"><a href="/business_side/account.html">Get Started</a></li>
-            <li class="nav_bar"><a href="/cllient_side/payment.html" style="color: #DF301C;">payment page</a></li>
-            <li class="nav_bar"><a href="/cllient_side/login.html" style="color: #DF301C;">client_login</a></li>
-            <li class="nav_bar"><a href="/business_side/dashboard.html" style="color: #DF301C;">dashboard</a></li>
+            
         </ul> 
 
         <div class="bodyContent" style="background-color: #F5F5F5;">
@@ -49,7 +47,7 @@
                           ">Payments</span> for Your Business.
                         </p>
                         
-                        <p>C-Zawena is an online payment platform that helps businesses collect monthly payments from customers who prefer to pay<br> using cash <span style="color: #C62828; font-size:22px;">vouchers</span>.</p>
+                        <p>C-Zawena is an online payment platform that helps businesses collect monthly payments from customers who prefer to pay<br> using cash  <span style="font-family:'Courier New', Courier, monospace;">Vouchers</span>.</p>
 
                         <!-- LEFT-ALIGNED GET STARTED BUTTON -->
                         <div style="display: flex; justify-content: flex-start; margin: 20px 0;">
@@ -70,8 +68,8 @@
                             <p>Customers can also use  Instant EFT to pay.</p>
                         </div>
 
-                        <p>no need to travel or stand in long queues.</p>
-                        <h2 style="color:#C62828">Proof of Payment</h2>
+                        <p>No need to travel or stand in long queues.</p>
+                        <h2 style="color:#EF6905; font-family: 'Courier New', Courier, monospace; font-weight: bold;">Proof of Payment</h2>
                        
                         <div style="display:flex; flex-direction: row; gap: 60px; align-items: center;">
                              <p>After every successful payment  a digital receipt is automatically generated and sent to the customer via WhatsApp.</p>
@@ -80,9 +78,18 @@
                            
                         </div>
  <p>Businesses can also view their customers’ payment history through their <em style="color: #DF301C; font-size: 20px;">C-Zawena</em> dashboard.</p>
-<div class="contribution-card">
-    <div class="chart-title">Payment History </div>
-
+<div >
+    <div class="chart-title">Customer Payment History </div>
+   <div class="legend-container">
+  <div class="legend-item">
+    <div class="contrib-box level-1"></div>
+    <span class="legend-text">Paid <span class="check-mark">✓</span></span>
+  </div>
+  <div class="legend-item">
+    <div class="contrib-box level-0"></div>
+    <span class="legend-text">Not paid   ✗</span>
+  </div>
+</div>
     <div class="graphHistory">
       <div class="month-col">
         <span class="month-label">Jan</span>
@@ -143,27 +150,117 @@
 
                 <div class="mainContent">
                     <ol style="gap:10px; display: flex; flex-direction: column;">
-                        <li style="color: #000; font-size: 18px;">Create Your Business Account</li>
-                        <p>Register your business on <em style="color: #DF301C; font-size: 20px;">C-Zawena</em> and set up your account.</p>
-                        <a href="/business_side/account.html" class="btn" style="background-color:#DF301C; color:#FFF1D1; width: fit-content; text-decoration:none; padding: 8px 16px; border-radius: 4px; display: inline-block;">Businesses Account</a>
-                        <p style="color:#E73F1E;">CREATE NOW!</p>
+                 <li style="color: #000; font-size: 18px; margin-bottom: 24px; list-style-position: inside;">
+    <strong>Create Your Business Account</strong>
+    
+    <p style="margin: 8px 0 12px 0; color: #333; font-size: 16px; line-height: 1.5;">
+        Register your business on 
+        <strong style="color: #DF301C; font-size: 20px; font-style: normal;">C-Zawena</strong> 
+        and set up your account.
+    </p>
+    
+    <p style="margin: 0; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+        <span style="color: #E73F1E; font-weight: bold; font-size: 14px; letter-spacing: 0.5px;">CREATE NOW!</span>
+        <a href="/business_side/account.html" 
+           class="btn" 
+           style="background-color: #DF301C; color: #FFF1D1; font-weight: 600; text-decoration: none; padding: 10px 20px; border-radius: 6px; display: inline-block; transition: background 0.2s ease-in-out; font-size: 15px; box-shadow: 0 2px 4px rgba(223, 48, 28, 0.2);"
+           onmouseover="this.style.backgroundColor='#b82514'"
+           onmouseout="this.style.backgroundColor='#DF301C'">
+           Business Account
+        </a>
+    </p>
+</li>
+<!-- List Item 1: Add Your Customers -->
+<li style="color: #000; font-size: 18px; margin-bottom: 24px;">
+    <strong>Add Your Customers</strong>
+    <p style="margin: 8px 0 12px 0; color: #333; font-size: 16px; line-height: 1.5;">
+        Create customer accounts from your 
+        <strong style="color: #DF301C; font-size: 20px; font-style: normal;">C-Zawena</strong> 
+        business dashboard.
+    </p>
+    <img src="click_addCustomer.png" alt="Add client interface" style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #e0e0e0; margin-top: 8px; display: block;" />
+</li>
 
-                        <li style="color: #000; font-size: 18px;">Add Your Customers</li>
-                        <p>Create customer accounts from your <em style="color: #DF301C; font-size: 20px;">C-Zawena</em> business dashboard.</p>
-                        <img src="addCustomer.png" alt="Add client interface"/>
+<!-- List Item 2: Register Customers on C-Zawena -->
+<li style="color: #000; font-size: 18px; margin-bottom: 24px;">
+    <strong>Register Customers on C-Zawena</strong>
+    
+    <p style="margin: 8px 0 12px 0; color: #333; font-size: 16px; line-height: 1.5;">
+        To allow customers to start paying your business with vouchers, a form of consent is generated and sent to the customer’s WhatsApp number when you press the 
+        <strong style="color: #DF301C; font-weight: bold;">"Add New Customer"</strong> button.
+    </p>
 
-                        <li style="color: #000; font-size: 18px;">Send Payment Reminders</li>
-                        <p>Customers receive a monthly payment reminder on WhatsApp with a link to the <em style="color: #DF301C; font-size: 20px;">C-Zawena</em> payment page.</p>
+    <p style="margin: 12px 0 0 0; color: #333; font-size: 16px; line-height: 1.5;">
+        Once the customer completes their registration on 
+        <span style="color: #DF301C; font-weight: bold;">C-Zawena</span>, they can immediately start paying using vouchers and will receive automated proof of payment via WhatsApp.
+    </p>
+</li>
+                     <h2>FOR CUSTOMERS</h2>
+<ol style="padding-left: 20px; margin: 16px 0;">
+    <!-- Step 1: Send Payment Reminders -->
+    <li style="color: #000; font-size: 18px; margin-bottom: 24px;">
+        <strong>Send Payment Reminders</strong>
+        <p style="margin: 8px 0 0 0; color: #333; font-size: 16px; line-height: 1.5;">
+            Customers receive a monthly payment reminder on WhatsApp with a link to the 
+            <strong style="color: #DF301C; font-size: 20px; font-style: normal;">C-Zawena</strong> 
+            payment page.
+        </p>
+    </li>
 
-                        <h2>FOR CUSTOMERS</h2>
-                        <li style="color: #000; font-size: 18px;">Make a Payment</li>
-                        <p>Customers open the payment link and enter their <span style="color: #34A99D; font-size: 18px;">Voucher</span> PIN to make their payment</p>
+    <!-- Step 2: Make a Payment -->
+    <li style="color: #000; font-size: 18px; margin-bottom: 24px;">
+        <strong>Make a Payment</strong>
+        <p style="margin: 8px 0 0 0; color: #333; font-size: 16px; line-height: 1.5;">
+            Customers open the payment link and enter their 
+            <strong style="color: #DF301C;">Voucher</strong> PIN to make their payment.
+        </p>
+    </li>
 
-                        <li style="color: #000; font-size: 18px;">Receive a Receipt</li>
-                        <p>Once the payment is successful, a digital receipt is automatically sent to the customer via <span style="color:#266210">WhatsApp.</span></p>
-                    </ol>
+    <!-- Step 3: Receive a Receipt -->
+    <li style="color: #000; font-size: 18px; margin-bottom: 24px;">
+        <strong>Receive a Receipt</strong>
+        <p style="margin: 8px 0 0 0; color: #333; font-size: 16px; line-height: 1.5;">
+            Once the payment is successful, a digital receipt is automatically sent to the customer via 
+            <strong style="color: #25D366;">WhatsApp</strong>.
+        </p>
+    </li>
+</ol>
                 </div>
+           <div style="padding: 24px 0; display: flex; flex-direction: column; gap: 20px;">
+    <!-- Intro & Pricing Overview -->
+    <div style="line-height: 1.6;">
+        <p style="margin: 0 0 10px 0; color: #111; font-size: 17px; font-weight: 600;">
+            For customers to receive a receipt page, purchase a 
+            <strong style="color: #DF301C;">Digital Receipt Book</strong> 
+            on your <span style="color: #DF301C; font-weight: 700;">C-Zawena</span> business dashboard.
+        </p>
+        <p style="margin: 0; color: #333; font-size: 16px;">
+            Starting from <strong style="color: #DF301C; font-size: 18px;">R50</strong> for <strong>70 pages</strong>.
+        </p>
+    </div>
 
+    <!-- Visual + Description Row -->
+    <div style="display: flex; flex-direction: row; align-items: center; gap: 24px; flex-wrap: wrap;">
+        <img src="business_side/free_ trial.png" alt="Free trial offer" style="height: 200px; width: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); object-fit: contain;" />
+        <p style="margin: 0; color: #444; font-size: 16px; line-height: 1.6; max-width: 480px; flex: 1; min-width: 250px;">
+            The price depends on the number of pages, giving your business the option to buy a digital receipt book for they size.
+        </p>
+    </div>
+
+    <!-- Usage Details -->
+    <p style="margin: 0; color: #333; font-size: 16px; line-height: 1.6;">
+        For each payment, one receipt page is deducted from your <strong>Digital Receipt Book</strong> balance.
+    </p>
+
+    <!-- Promotional Highlight Box -->
+    <div style="background-color: #FFF8F6; border-left: 4px solid #DF301C; padding: 16px 20px; border-radius: 6px;">
+      <p> 🎉 For new business registrations</p>
+        <p style="margin: 0;  font-size: 16px; font-weight: 700; line-height: 1.5;">
+             WE OFFER  <span style="color: #DF301C;">20 FREE PAGES  </span> to get started with <span style="font-weight: 800;">C-Zawena</span>!
+        </p>
+    </div>
+</div>
+                
                 <h2 style="color: #DF301C; text-decoration: underline;">Benefits of C-Zawena</h2> 
                 <div class="solution" style="align-items: flex-start; gap: 6px; color: #000; background-color: #F5F5F5;">
                     <p>✓ Easy and convenient payments</p>
