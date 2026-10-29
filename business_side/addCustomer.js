@@ -42,8 +42,11 @@ function saveClient () {
    const data = await response.json();
    console.log('Success:', data);
    if(data.status == "OK"){   
-      console.log(data.numberOfCUstomer)
-      sessionStorage.setItem("total_count",data.numberOfCUstomer);
+      console.log(data.pending_customers);
+      console.log("total number of customers added");
+      console.log(data.added_customers);
+      sessionStorage.setItem("total_pending",data.pending_customers);
+      sessionStorage.setItem("total_customers",data.added_customers);
      
 
      

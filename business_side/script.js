@@ -9,17 +9,19 @@
     }
   }
   console.log("customer number id")
-  const n_customer = document.getElementById("pending_customers");
+  const n_pending = document.getElementById("pending_customers");
+  const n_customer = document.getElementById("n_customers");
   
-  const new_value = sessionStorage.getItem("total_count");
+  const pending_forms = sessionStorage.getItem("total_pending");
+  const completed_forms = sessionStorage.getItem("total_customers");
 
   console.log(new_value + " cache customer count" );
 
-  n_customer.textContent = new_value ;
-  n_customer.style.fontSize = "50px";
-  n_customer.style.color = "orangered";
+  n_pending.textContent = pending_forms ;
+  n_pending.style.fontSize = "50px";
+  n_pending.style.color = "orangered";
 
-  
+  n_customer.textContent = completed_forms;
   const navlinks = document.querySelector(".nav_links");
   const navBar = document.querySelector(".hamburger");
   let menuOpen = false;
