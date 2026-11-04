@@ -87,11 +87,9 @@ document.getElementById("searchClient").addEventListener('submit',async function
      const customer_number = document.getElementById("customerNumber");
      const customer_id_no = document.getElementById("customerID");
      const customer_amount = document.getElementById("customerAmount");
-     const customer_details = document.getElementById("details_");
+     
 
      if(data.status == "OK"){
-         customer_notFound.style.display = "none";
-        customer_details.style.display = "block";
        customer_name.textContent =  data.customer_name;
         sessionStorage.setItem("cacheName",data.customer_name);
         customer_surname.textContent = data.customer_surname;
