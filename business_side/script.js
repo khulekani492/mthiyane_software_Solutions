@@ -16,24 +16,16 @@
   const completed_forms = sessionStorage.getItem("total_customers");
 
 
-  // n_pending.textContent = pending_forms ;
-  // n_pending.style.fontSize = "50px";
-  // n_pending.style.color = "orangered";
 
-  // n_customer.textContent = completed_forms;
-  // n_customer.style.fontSize = "50px";
-  // n_customer.style.color = "orangered";
   const pending_box = n_pending ? n_pending.querySelector(".count-box") : null;
 const customer_box = n_customer ? n_customer.querySelector(".count-box2") : null;
 
 if (pending_box && pending_forms !== null) {
   pending_box.textContent = pending_forms;
-  customer_box.textContent = completed_forms;
+  
 }
 
-if (customer_box && completed_forms !== null) {
-  customer_box.textContent = completed_forms;
-}
+
   const navlinks = document.querySelector(".nav_links");
   const navBar = document.querySelector(".hamburger");
   let menuOpen = false;
@@ -125,14 +117,10 @@ async function fetchData() {
 
   const nameEl =   document.getElementById("bsName");
 
-  const completed_forms = sessionStorage.getItem("total_customers");
-
+  
+ const customer_box = n_customer ? n_customer.querySelector(".count-box2") : null;
 
  
-
-const customer_box = n_customer ? n_customer.querySelector(".count-box2") : null;
-
-
 
 
   const url = new URL('https://backend.c-zwena.co.za/totalCustomers/');
